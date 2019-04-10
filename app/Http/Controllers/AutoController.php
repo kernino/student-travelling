@@ -11,7 +11,7 @@ class AutoController extends Illuminate\Routing\Controller
     }
     
     public function GetAllTravelersByAuto(){
-        $aAuto = $this->auto->getAllTravelersByAuto();
+        $aAuto = $this->auto->getAllTravelersByAuto($iAutoId);
         return view('auto.view', array('auto' => $aAuto));
     }
 }

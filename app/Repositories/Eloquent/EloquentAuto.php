@@ -27,7 +27,18 @@ class EloquentAuto implements AutoRepository
         }
     }
     
-    public function GetAllTravelersByAuto(){
-        
+    public function GetAllTravelersByAuto($iAutoId){
+        $db = $this->db->pdo;
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        try{
+            $sSqlQuery = "SELECT * FROM auto WHERE auto_id = :iAutoId";
+            $oStmt = $db->prepare($sSqlQuery);
+            $oStmt->bindParam(':iAutoId', $iAutoId);
+            $oStmt->execute();
+            $aAuto = $oStmt->fetch(PDO::FETCH_ASSOC);
+            return $aAuto;
+        } catch (PDOException $oEx) {
+            return $oEx->getMessage();
+        }
     }
 }

@@ -6,8 +6,8 @@ interface AutoRepository
 {
     public function __contruct();
 
-    public function GetAllTravelersByName();
+    public function GetAllTravelersByName($sName);
     
-    public function GetAllTravelersByAuto();
+    public function GetAllTravelersByAuto($iAutoId);
 }
 
