@@ -24,6 +24,5 @@ class EloquentAlgemeneInfo implements AlgemeneInfoRepository
         } catch (PDOException $oEx) {
             return $oEx->getMessage();
         }
-        
      }
 }
