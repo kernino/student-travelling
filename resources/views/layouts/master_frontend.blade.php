@@ -8,6 +8,5 @@
     <body>
         @include('partials.header_frontend')
         @yield('content')
-        @include('partials.footer_frontend')
     </body>
 </html>
