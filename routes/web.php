@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('partials.frontend.index');
+});
+
+Route::get('/admin/', function() {
+    return view('partials.backend.index');
 });
