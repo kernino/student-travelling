@@ -8,6 +8,48 @@ and open the template in the editor.
     Author     : koend
 */
 
-body {
-    background-color: black;
+html, body {
+  font-family: 'Lato', serif;  
+}
+ 
+.navbar-default {
+  font-size: 1.15em;
+  font-weight: 400;
+  background-color: #3BA3FB;
+  padding: 10px;
+  border: 0px;
+  border-radius: 0px;
+}
+ 
+.reis1{
+    color: #208B59;
+}
+ 
+.reis2 {
+    color: #FF0000;
+}
+ 
+nav a, nav  li {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+ 
+nav.hoofd-nav{
+    position: fixed;
+    top: 58px;
+    bottom: 0;
+    margin-left:-30px;
+    background-color: hsl(208, 96%, 61%);
+    z-index:1;
+}
+ 
+nav.hoofd-nav li{
+    margin-left:0px;
+    margin: 10px;
+text-decoration: none;
+}
+ 
+nav.hoofd-nav li a:hover{
+    text-decoration: none;
 }
