@@ -8,4 +8,3 @@ class Planning extends Model
 {
     protected $primaryKey = 'planning';
 }
-
