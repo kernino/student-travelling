@@ -8,4 +8,3 @@ interface TravelersRepository
     
     public function GetTravelersByName($sName);
 }
-

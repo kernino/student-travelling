@@ -10,4 +10,3 @@ interface AutoRepository
     
     public function GetAllTravelersByAuto($iAutoId);
 }
-
