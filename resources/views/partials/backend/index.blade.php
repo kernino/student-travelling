@@ -9,8 +9,13 @@
 @endsection
 
 @section('content')
-    <h1>Index page backend</h1>
+<div id="content_container">
+    @yield('container')
+</div>
+    
 @endsection
 
 @section('scripts')
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="{{ mix('/js/backend.js') }}"></script>
 @endsection

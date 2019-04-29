@@ -9,11 +9,6 @@ and open the template in the editor.
     Author     : koend
 */
 
-html,
-body {
-  font-family: "Lato", serif;
-}
-
 .navbar-default {
   font-size: 1.15em;
   font-weight: 400;
@@ -55,5 +50,34 @@ nav.hoofd-nav li {
 
 nav.hoofd-nav li a:hover {
   text-decoration: none;
+}
+
+div#content_container {
+  margin-left: 120px;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  margin-left: 60px;
+}
+
+.htmlEditor {
+  margin-left: 160px;
+  margin-right: auto;
+  width: 80%;
+}
+
+.htmlEditor input {
+  margin-left: 10%;
+  margin-right: 5%;
+  margin-top: 10px;
+  width: 30%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #3ca2fb;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
 }
 

@@ -11,10 +11,14 @@
 |
 */
 
+// frontend routes
 Route::get('/', function () {
     return view('partials.frontend.index');
 });
 
+
+// backend routes
 Route::get('/admin/', function() {
     return view('partials.backend.index');
 });
+Route::get('/admin/info', 'Backend\InfoController@index');

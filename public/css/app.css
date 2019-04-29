@@ -10662,3 +10662,8 @@ a.text-dark:focus {
   }
 }
 
+html,
+body {
+  font-family: "Lato", serif;
+}
+
