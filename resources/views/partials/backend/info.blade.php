@@ -10,7 +10,7 @@
         </textarea>
         
         <input type="submit" value="Opslaan" name="save"/>
-        <input type="submit" value="Annuleren" name="cancel"/>
+        <input type="button" value="Annuleren" onclick="history.go(0)"/>
     </div>
 </form>
 @endsection
