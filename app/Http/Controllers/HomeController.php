@@ -12,7 +12,8 @@ class HomeController extends Controller
             'start_date' => "10/05/2019",
             'end_date' => "24/05/2019",
             'travelcode' => "1234",
-        ); 
+        );
+        
         return view('partials.frontend.index', ["aHomeData" => $aHomeData]);
     }
 }
