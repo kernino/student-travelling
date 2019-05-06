@@ -15,4 +15,8 @@ class HotelsTrips extends Model
     public function Hotels(){
         return $this->belongsTo('App\Models\Hotels');
     }
+    
+    public function RoomsHotelsTrips(){
+        return $this->hasMany('App\Models\RoomsHotelsTrips');
+    }
 }
