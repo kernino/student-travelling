@@ -12,9 +12,7 @@
 */
 
 // frontend routes
-Route::get('/', function () {
-    return view('partials.frontend.index');
-});
+Route::get('/', 'HomeController@getHomeData');
 
 
 // backend routes

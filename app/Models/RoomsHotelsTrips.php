@@ -10,6 +10,10 @@ class RoomsHotelsTrips extends Model
     
     public function TravellersRoomsHotelsTrips(){
         return $this->hasMany('App\Models\TravellersRoomsHotelsTrips');
-    }   
+    }
+    
+    public function HotelsTrips(){
+        return $this->belongsTo('App\Models\HotelsTrips');
+    }
 }
 

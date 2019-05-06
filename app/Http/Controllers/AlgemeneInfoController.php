@@ -10,4 +10,5 @@ class AlgemeneInfoController extends Illuminate\Routing\Controller
         $aAlgemeneInfo = $this->algemeneInfo->getAlgemeneInfo();
         return view('algemeneInfo.view', array('algemeneInfo' => $aAlgemeneInfo));
     }
+    
 }

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 
-class TravelersController extends Illuminate\Routing\Controller
+class TravelersController extends Controller
 {
     private $travelers;
     
