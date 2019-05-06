@@ -2,7 +2,7 @@
 
 @section('container')
 <h1>Algemene Info</h1>
-<form action="form_handler.php" method="post" class="htmlEditor">
+<form action="form_handler.php" method="POST" class="htmlEditor">
     <div>
         {{ csrf_field() }}
         
@@ -13,4 +13,8 @@
         <input type="submit" value="Annuleren" name="cancel"/>
     </div>
 </form>
+@endsection
+
+@section('page_specific_scripts')
+    <script>CKEDITOR.replace( 'info_content' );</script>
 @endsection
