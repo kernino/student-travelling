@@ -4,4 +4,3 @@
  * and open the template in the editor.
  */
 
-CKEDITOR.replace( 'info_content' );

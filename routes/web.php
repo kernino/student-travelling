@@ -20,5 +20,7 @@ Route::get('/', function () {
 // backend routes
 Route::get('/admin/', function() {
     return view('partials.backend.index');
-});
-Route::get('/admin/info', 'Backend\InfoController@index');
+})->name('home_backend');
+Route::get('/admin/info', 'InfoController@index');
+Route::get('/admin/vervoer', 'TransportController@index');
+Route::post('/admin/vervoer', 'TransportController@create');

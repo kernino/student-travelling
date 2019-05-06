@@ -18,4 +18,5 @@
 @section('scripts')
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script src="{{ mix('/js/backend.js') }}"></script>
+@yield('page_specific_scripts')
 @endsection
