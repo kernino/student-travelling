@@ -9,9 +9,9 @@
 @endsection
 
 @section('content')
-<h1>{{ homeData->title }}</h1>
-<h2>{{ homeData->startDate }} - {{ homeData->endDate }}</h2>
-<h4>Reiscode: {{ homeData->travelCode }}</h4>
+<h1>{{ $aHomeData["place"] }}</h1>
+<h2>{{ $aHomeData["start_date"] }} - {{ $aHomeData["end_date"] }}</h2>
+<h4>Reiscode: {{ $aHomeData["travelcode"] }}</h4>
 
 @endsection
 
