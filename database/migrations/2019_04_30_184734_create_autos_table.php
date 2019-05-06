@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTransportsTable extends Migration
+class CreateAutosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTransportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transports', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('transport_content');
+        Schema::create('autos', function (Blueprint $table) {
+            $table->increments('auto_id');
+            $table->string('auto_content');
             $table->timestamps();
         });
     }
