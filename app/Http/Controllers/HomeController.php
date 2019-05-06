@@ -5,8 +5,7 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    public function getHomeData()
-    {
+    public function getHomeData(){
         $aHomeData = array(
             'title' => "USA2019",
             'place' => "Verenigde Staten",
