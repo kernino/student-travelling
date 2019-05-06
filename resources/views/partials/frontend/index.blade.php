@@ -9,7 +9,10 @@
 @endsection
 
 @section('content')
-<h1>Index page frontend</h1>
+<h1>{{ homeData->title }}</h1>
+<h2>{{ homeData->startDate }} - {{ homeData->endDate }}</h2>
+<h4>Reiscode: {{ homeData->travelCode }}</h4>
+
 @endsection
 
 @section('scripts')

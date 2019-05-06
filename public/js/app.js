@@ -49449,10 +49449,10 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\Homestead\student-travelling\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! G:\Homestead\student-travelling\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! G:\Homestead\student-travelling\resources\sass\_frontend.scss */"./resources/sass/_frontend.scss");
-module.exports = __webpack_require__(/*! G:\Homestead\student-travelling\resources\sass\_backend.scss */"./resources/sass/_backend.scss");
+__webpack_require__(/*! C:\Users\siber\Desktop\UCLL\ICT Projects\Project 2018-2019\student-travelling\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\siber\Desktop\UCLL\ICT Projects\Project 2018-2019\student-travelling\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\siber\Desktop\UCLL\ICT Projects\Project 2018-2019\student-travelling\resources\sass\_frontend.scss */"./resources/sass/_frontend.scss");
+module.exports = __webpack_require__(/*! C:\Users\siber\Desktop\UCLL\ICT Projects\Project 2018-2019\student-travelling\resources\sass\_backend.scss */"./resources/sass/_backend.scss");
 
 
 /***/ })

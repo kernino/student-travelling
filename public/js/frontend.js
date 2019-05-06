@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/backend.js":
-/*!*********************************!*\
-  !*** ./resources/js/backend.js ***!
-  \*********************************/
+/***/ "./resources/js/frontend.js":
+/*!**********************************!*\
+  !*** ./resources/js/frontend.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -98,18 +98,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-CKEDITOR.replace('info_content');
 
 /***/ }),
 
-/***/ 1:
-/*!***************************************!*\
-  !*** multi ./resources/js/backend.js ***!
-  \***************************************/
+/***/ 2:
+/*!****************************************!*\
+  !*** multi ./resources/js/frontend.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\siber\Desktop\UCLL\ICT Projects\Project 2018-2019\student-travelling\resources\js\backend.js */"./resources/js/backend.js");
+module.exports = __webpack_require__(/*! C:\Users\siber\Desktop\UCLL\ICT Projects\Project 2018-2019\student-travelling\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
