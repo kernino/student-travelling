@@ -28,6 +28,6 @@ class TravellersAutos extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('travellers_autos');
     }
 }
