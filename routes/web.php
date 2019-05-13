@@ -23,3 +23,5 @@ Route::get('/admin/info', 'InfoController@index');
 
 Route::get('/admin/vervoer', 'AutoController@index')->name('vervoer_backend');
 Route::post('/admin/vervoer', 'AutoController@create');
+
+Route::get('/admin/planning', 'PlanningController@index')->name('planning_backend');

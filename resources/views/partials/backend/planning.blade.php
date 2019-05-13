@@ -69,5 +69,5 @@
 @endsection
 
 @section('page_specific_scripts')
-    
+    <script>CKEDITOR.replace( 'listOfPlanningen' );</script>
 @endsection

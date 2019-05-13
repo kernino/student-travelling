@@ -21,7 +21,7 @@
 		
 <nav class="hoofd-nav">
     <ol>
-        <li><a href="#">Planning</a></li>
+        <li><a href="{{ url('/admin/planning') }}">Planning</a></li>
         <li><a href="{{ url('/admin/info') }}">Algemene Info</a></li> 
         <li><a href="#">Hotels</a></li> 
         <li><a href="{{ url('/admin/vervoer') }}">Vervoer</a></li>

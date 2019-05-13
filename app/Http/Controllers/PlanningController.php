@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Repositories\Contracts\PlanningRepository;
 use App\Models\Planning;
 
-class PlanningController extends Illuminate\Routing\Controller
+class PlanningController extends Controller
 {
     /**
      *
@@ -15,17 +15,17 @@ class PlanningController extends Illuminate\Routing\Controller
     /**
      * PlanningController Constructor
      * 
-     * @param PlanningRepository $planning
+     * @param PlanningRepository $Planning
      */
     public function __construct(PlanningRepository $planning) 
     {
        $this->planning = $planning;
     }
     
-    public function GetTrip(){
-        $aPlanning = $this->planning->GetTrips($sTrip);
-        return view('planning.view', array('planning' => $aPlanning));
-    }
+//    public function GetTrip(){
+//        $aPlanning = $this->planning->GetTrip($sTrip);
+//        return view('planning.view', array('planning' => $aPlanning));
+//    }
     
     public function GetAllPlanningen(){
         $listOfPlanningen = $this->planning->GetAllPlanningen();
