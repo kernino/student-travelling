@@ -15,8 +15,10 @@ class AutosTrips extends Migration
     {
         Schema::create('autos_trips', function (Blueprint $table) {
             $table->increments('autos_trip_id')->unique();
-            $table->string('trip_id');
-            $table->string('auto_id');
+            $table->unsignedBigInteger('trip_id');
+            $table->foreign('trip_id')->references('trip_id')->on('trips');
+            $table->unsignedBigInteger('auto_id');
+            $table->foreign('auto_id')->references('auto_id')->on('autos');
             $table->timestamps();
         });    
     }
