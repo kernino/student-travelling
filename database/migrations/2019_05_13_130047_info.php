@@ -14,7 +14,7 @@ class AlgemeneInfo extends Migration
     public function up()
     {
         Schema::create('info', function (Blueprint $table) {
-            $table->increments('general_info_id')->unique();
+            $table->increments('info_id')->unique();
             $table->string('general_info');
             $table->text('flight_info');
             $table->unsignedBigInteger('trip_id');

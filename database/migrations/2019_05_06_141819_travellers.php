@@ -14,12 +14,11 @@ class Travellers extends Migration
     public function up()
     {
         Schema::create('travellers', function (Blueprint $table) {
-            $table->increments('travellers_id')->unique();
+            $table->increments('traveller_id')->unique();
 
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email');
-    
+            $table->string('email');   
             $table->string('phone');
        
             $table->timestamps();

@@ -14,7 +14,7 @@ class AutosTrips extends Migration
     public function up()
     {
         Schema::create('autos_trips', function (Blueprint $table) {
-            $table->increments('autos_trip_id')->unique();
+            $table->increments('auto_trip_id')->unique();
             $table->unsignedBigInteger('trip_id');
             $table->foreign('trip_id')->references('trip_id')->on('trips');
             $table->unsignedBigInteger('auto_id');

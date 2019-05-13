@@ -14,9 +14,10 @@ class RoomsHotelsTrips extends Migration
     public function up()
     {
         Schema::create('rooms_hotels_trips', function (Blueprint $table) {
-            $table->increments('rooms_hotel_trip_id')->unique();
-            $table->unsignedBigInteger('hotels_trip_id');
-            $table->foreign('hotels_trip_id')->references('hotels_trip_id')->on('hotels_trips');
+            $table->increments('room_hotel_trip_id')->unique();
+            $table->unsignedBigInteger('hotel_trip_id');
+            $table->foreign('hotel_trip_id')->references('hotel_trip_id')->on('hotels_trips');
+            $table->unsignedBigInteger('room_number');
             $table->unsignedBigInteger('size');
             $table->timestamps();
         });
