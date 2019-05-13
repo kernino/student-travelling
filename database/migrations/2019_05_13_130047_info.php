@@ -17,7 +17,7 @@ class AlgemeneInfo extends Migration
             $table->increments('info_id')->unique();
             $table->string('general_info');
             $table->text('flight_info');
-            $table->unsignedBigInteger('trip_id');
+            $table->integer('trip_id');
             $table->foreign('trip_id')->references('trip_id')->on('trips');
             $table->timestamps();
         });   
@@ -30,6 +30,6 @@ class AlgemeneInfo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('algemene_info');
+        Schema::dropIfExists('info');
     }
 }

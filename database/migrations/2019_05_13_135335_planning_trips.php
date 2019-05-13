@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AutosTrips extends Migration
+class PlanningTrips extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class AutosTrips extends Migration
      */
     public function up()
     {
-        Schema::create('autos_trips', function (Blueprint $table) {
-            $table->increments('auto_trip_id')->unique();
+        Schema::create('planning_trips', function (Blueprint $table) {
+            $table->increments('planning_trip_id')->unique();
             $table->integer('trip_id');
             $table->foreign('trip_id')->references('trip_id')->on('trips');
-            $table->integer('auto_id');
-            $table->foreign('auto_id')->references('auto_id')->on('autos');
+            $table->integer('traveller_id');
+            $table->foreign('planning_id')->references('planning_id')->on('planning');           
             $table->timestamps();
-        });    
+        });   
     }
 
     /**
@@ -30,6 +30,6 @@ class AutosTrips extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('autos_trips');
+        Schema::dropIfExists('planning_trips');
     }
 }

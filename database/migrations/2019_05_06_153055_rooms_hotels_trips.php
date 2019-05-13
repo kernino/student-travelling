@@ -15,10 +15,10 @@ class RoomsHotelsTrips extends Migration
     {
         Schema::create('rooms_hotels_trips', function (Blueprint $table) {
             $table->increments('room_hotel_trip_id')->unique();
-            $table->unsignedBigInteger('hotel_trip_id');
+            $table->integer('hotel_trip_id');
             $table->foreign('hotel_trip_id')->references('hotel_trip_id')->on('hotels_trips');
-            $table->unsignedBigInteger('room_number');
-            $table->unsignedBigInteger('size');
+            $table->integer('room_number');
+            $table->integer('size');
             $table->timestamps();
         });
     }
