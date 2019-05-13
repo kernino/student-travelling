@@ -19,6 +19,7 @@ class Hotels extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('email');
+            $table->string('photo_file_path');
             $table->text('hotel_information');
             $table->timestamps();
         });
