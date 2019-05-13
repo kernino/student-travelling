@@ -6,9 +6,19 @@ use App\Models\Planning;
 
 class EloquentPlanning implements PlanningRepository
 {
+    /**
+     *
+     * @var Planning 
+     */
     private $planningModel;
     
-    public function __construct(planning $model) {
+    /**
+     * EloquentPlanning constructor
+     * 
+     * @param Planning $model
+     */
+    
+    public function __construct(Planning $model) {
         $this->planningModel = $model;
     }
     
@@ -26,7 +36,7 @@ class EloquentPlanning implements PlanningRepository
         }
     }
     
-    public function GetTrips($sTrip) {
+    public function GetTrip($sTrip) {
         $db = $this->db->pdo;
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         try{
@@ -39,5 +49,9 @@ class EloquentPlanning implements PlanningRepository
         } catch (PDOException $oEx) {
             return $oEx->getMessage();
         }
+    }
+    
+    public function GetAllPlanningen() {
+        return $this->planningModel->get();
     }
 }

@@ -8,5 +8,7 @@ interface PlanningRepository
     
     public function GetPLanning();
     
-    public function GetTrips($sTrip);
+    public function GetTrip($sTrip);
+    
+    public function GetAllPlanningen();
 }
