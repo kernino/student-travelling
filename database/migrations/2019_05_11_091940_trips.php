@@ -16,12 +16,12 @@ class Trips extends Migration
         Schema::create('trips', function (Blueprint $table) {
             $table->increments('trip_id')->unique();
             $table->string('name');
-            $table->string('is_active');
+            $table->boolean('is_active');
             $table->string('year');
-            $table->string('price');
+            $table->double('price');
             $table->string('contact_mail');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->string('destination');
             $table->rememberToken();
             $table->timestamps();
