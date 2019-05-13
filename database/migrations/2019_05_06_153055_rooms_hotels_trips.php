@@ -17,7 +17,6 @@ class RoomsHotelsTrips extends Migration
             $table->increments('room_hotel_trip_id')->unique();
             $table->integer('hotel_trip_id');
             $table->foreign('hotel_trip_id')->references('hotel_trip_id')->on('hotels_trips');
-            $table->integer('room_number');
             $table->integer('size');
             $table->timestamps();
         });

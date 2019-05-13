@@ -13,8 +13,8 @@ class PlanningTrips extends Migration
      */
     public function up()
     {
-        Schema::create('planning_trips', function (Blueprint $table) {
-            $table->increments('planning_trip_id')->unique();
+        Schema::create('day_plannings_trips', function (Blueprint $table) {
+            $table->increments('day_planning_trip_id')->unique();
             $table->integer('trip_id');
             $table->foreign('trip_id')->references('trip_id')->on('trips');
             $table->integer('traveller_id');
@@ -30,6 +30,6 @@ class PlanningTrips extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('planning_trips');
+        Schema::dropIfExists('day_plannings_trips');
     }
 }
