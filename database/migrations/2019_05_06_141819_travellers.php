@@ -15,9 +15,10 @@ class Travellers extends Migration
     {
         Schema::create('travellers', function (Blueprint $table) {
             $table->increments('travellers_id')->unique();
-            $table->string('user_id');
-            $table->string('zip_id');
-            $table->string('major_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->unsignedBigInteger('zip_id');
+            $table->unsignedBigInteger('major_id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
@@ -28,12 +29,12 @@ class Travellers extends Migration
             $table->string('emergency_phone_1');
             $table->string('emergency_phone_2');
             $table->string('nationality');
-            $table->string('birthdate');
+            $table->date('birthdate');
             $table->string('birthplace');
             $table->string('iban');
             $table->string('bic');
             $table->string('medical_issue');
-            $table->string('medical_info');
+            $table->text('medical_info');
             $table->rememberToken();
             $table->timestamps();
         });

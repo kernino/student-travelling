@@ -16,7 +16,9 @@ class TravellersAutos extends Migration
         Schema::create('travellers_autos', function (Blueprint $table) {
             $table->increments('traveller_auto_id')->unique();
             $table->string('autos_trip_id');
+            $table->foreign('autos_trip_id')->references('autos_trip_id')->on('autos_trips');
             $table->string('traveller_id');
+            $table->foreign('traveller_id')->references('traveller_id')->on('travellers');
             $table->timestamps();
         });
     }
