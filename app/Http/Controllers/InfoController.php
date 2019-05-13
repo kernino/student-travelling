@@ -10,4 +10,8 @@ class InfoController extends Controller
     public function index() {
         return view('partials.backend.info');
     }
+    
+    public function create() {
+        
+    }
 }

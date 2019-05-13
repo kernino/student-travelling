@@ -2,18 +2,18 @@
 
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\AlgemeneInfoRepositoryBackend;
-use App\Models\AlgemeneInfoBackend;
+use App\Models\AlgemeneInfo;
 
 class EloquentAlgemeneInfoBackend implements AlgemeneInfoRepositoryBackend
 {
-    private $algemeneInfoModelBackend;
+    private $model;
     
-    public function __construct(algemeneInfoBackend $model) {
-        $this->algemeneInfoModelBackend = $model;
+    public function __construct(AlgemeneInfo $model) {
+        $this->model = $model;
     }
     
     public function getAlgemeneInfo(){
-        return $this->model->where()->get(); // "where" nog aanpassen
+        return $this->model->where('algemene_info_id')->get(); // "where" nog aanpassen
      }
      
     public function saveAlgemeneInfo(string $sHtmlEditorContent){
