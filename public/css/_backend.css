@@ -86,3 +86,24 @@ div#errors {
   width: 70%;
 }
 
+.htmlContent {
+  margin-left: 150px;
+}
+
+.card {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.alert {
+  margin-right: 100px;
+}
+
+.htmlContent h1 {
+  text-align: center;
+}
+
+.date {
+  text-align: center;
+}
+

@@ -108,7 +108,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\siber\Desktop\UCLL\ICT Projects\Project 2018-2019\student-travelling\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! E:\homesteadProjects\student-travelling\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
