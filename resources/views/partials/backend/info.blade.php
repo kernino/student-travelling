@@ -1,12 +1,27 @@
 @extends('partials.backend.index')
 
 @section('container')
-<h1>Algemene Info</h1>
-<form action="form_handler.php" method="POST" class="htmlEditor">
+<h1>Info</h1>
+<form method="POST" class="htmlEditor">
     <div>
         {{ csrf_field() }}
         
-        <textarea cols="80" rows="12" id="info_content" name="info_content"> 
+        <h3>Algemene info:</h3>
+        <input type="hidden" value="algemeneInfo" name="infoType" />
+        <textarea cols="80" rows="12" id="algemene_info_content" name="info_content"> 
+        </textarea>
+        
+        <input type="submit" value="Opslaan" name="save"/>
+        <input type="button" value="Annuleren" onclick="history.go(0)"/>
+    </div>
+</form>
+<hr>
+<form method="POST" class="htmlEditor">
+    <div>
+        {{ csrf_field() }} 
+        <h3>Vlucht info:</h3>
+        <input type="hidden" value="vluchtInfo" name="infoType" />
+        <textarea cols="80" rows="12" id="vlucht_info_content" name="info_content"> 
         </textarea>
         
         <input type="submit" value="Opslaan" name="save"/>
@@ -16,5 +31,6 @@
 @endsection
 
 @section('page_specific_scripts')
-    <script>CKEDITOR.replace( 'info_content' );</script>
+    <script>CKEDITOR.replace( 'algemene_info_content' );</script>
+    <script>CKEDITOR.replace( 'vlucht_info_content' );</script>
 @endsection
