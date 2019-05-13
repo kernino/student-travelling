@@ -20,6 +20,9 @@ class Trips extends Migration
             $table->string('year');
             $table->string('price');
             $table->string('contact_mail');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('destination');
             $table->rememberToken();
             $table->timestamps();
         });    
