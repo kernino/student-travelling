@@ -18,8 +18,6 @@ class Users extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('role');
-            $table->resetToken();
-            $table->rememberToken();
             $table->timestamps();
         });    
     }

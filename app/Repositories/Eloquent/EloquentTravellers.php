@@ -4,18 +4,18 @@ namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\TravelersRepository;
 use App\Models\Travelers;
 
-class EloquentTravelers implements TravelersRepository{
+class EloquentTravellers implements TravellersRepository{
     private $travelersModel;
     
     public function __construct(travelers $model) {
         $this->travelersModel = $model;
     }
     
-    public function GetTravelersByName($sName) {
+    public function GetTravellersByName($sName) {
         $db = $this->db->pdo;
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         try{
-            $sSqlQuery = "SELECT * FROM travelers WHERE travelers_name = :sName";
+            $sSqlQuery = "SELECT * FROM travelers WHERE travellers_name = :sName";
             $oStmt = $db->prepare($sSqlQuery);
             $oStmt->bindParam(':sName', $sName);
             $oStmt->execute();
@@ -26,11 +26,11 @@ class EloquentTravelers implements TravelersRepository{
         }
     }
     
-    public function GetTravelers(){
+    public function GetTravellers(){
         $db = $this->db->pdo;
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         try{
-            $sSqlQuery = "SELECT * FROM travelers";
+            $sSqlQuery = "SELECT * FROM travellers";
             $oStmt = $db->prepare($sSqlQuery);
             $oStmt->execute();
             $aAuto = $oStmt->fetch(PDO::FETCH_ASSOC);

@@ -23,6 +23,7 @@ class Trips extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->string('destination');
+            $table->string('travel_code');
             $table->rememberToken();
             $table->timestamps();
         });    
