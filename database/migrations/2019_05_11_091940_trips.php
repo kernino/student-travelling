@@ -24,6 +24,7 @@ class Trips extends Migration
             $table->string('end_date');
             $table->string('destination');
             $table->string('travel_code')->nullable();
+            $table->text('transportation_info');
             $table->rememberToken();
             $table->timestamps();
         });    

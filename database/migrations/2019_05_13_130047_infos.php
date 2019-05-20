@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Info extends Migration
+class Infos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class Info extends Migration
      */
     public function up()
     {
-        Schema::create('info', function (Blueprint $table) {
+        Schema::create('infos', function (Blueprint $table) {
             $table->increments('info_id')->unique();
-            $table->string('general_info');
-            $table->text('flight_info');
-            $table->unsignedBigInteger('trip_id');
-            //$table->foreign('trip_id')->references('trip_id')->on('trips');
+            $table->text('name')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
         });   
     }

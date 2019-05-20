@@ -20,6 +20,7 @@ class EloquentHotel implements HotelRepository
     
     public function GetAllTravellersPerRoom(){
         $travellers = DB::table('travellers')->get();
+        
 
         foreach ($travellers as $traveller)
         {

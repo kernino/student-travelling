@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class AlgemeneInfo extends Model
 {
-    protected $primaryKey = "algemeneInfo_id";
-    
+    protected $primaryKey = "info_id";
     
 }

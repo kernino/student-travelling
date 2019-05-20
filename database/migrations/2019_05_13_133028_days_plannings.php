@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Planning extends Migration
+class DaysPlannings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Planning extends Migration
      */
     public function up()
     {
-        Schema::create('day_plannings', function (Blueprint $table) {
+        Schema::create('days_plannings', function (Blueprint $table) {
             $table->increments('day_planning_id')->unique();
             $table->string('name');
             $table->date('date');
