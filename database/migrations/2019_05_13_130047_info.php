@@ -18,7 +18,6 @@ class Info extends Migration
             $table->string('general_info');
             $table->text('flight_info');
             $table->unsignedBigInteger('trip_id');
-            //$table->foreign('trip_id')->references('trip_id')->on('trips');
             $table->timestamps();
         });   
     }
