@@ -1,34 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Repositories\Contracts\PlanningRepository;
 use App\Models\Planning;
 
 class PlanningController extends Controller
 {
-    /**
-     *
-     * @var PlanningRepository
-     */
-    private $planning;
+    private $planningBackend;
     
-    /**
-     * PlanningController Constructor
-     * 
-     * @param PlanningRepository $Planning
-     */
-    public function __construct(PlanningRepository $planning) 
-    {
-       $this->planning = $planning;
+    public function __construct(PlanningRepository $planningBackend) {
+        $this->planningBackend = $planningBackend;
+    } 
+    
+  
+    public function GetPlanning(){
+        ;
+    }
+   
+    public function GetTrip($sTrip){
+        $aPlanning = $this->planningBackend->GetTrip($sTrip);
+        return view('planning.view', array('planning' => $aPlanning));
     }
     
-//    public function GetTrip(){
-//        $aPlanning = $this->planning->GetTrip($sTrip);
-//        return view('planning.view', array('planning' => $aPlanning));
-//    }
-    
     public function GetAllPlanningen(){
-        $listOfPlanningen = $this->planning->GetAllPlanningen();
+        $listOfPlanningen = $this->planningBackend->GetAllPlanningen();
         return view('partials.backend.planning', array('listOfPlanningen' => $listOfPlanningen));
     }
 }

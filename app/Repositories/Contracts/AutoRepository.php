@@ -4,7 +4,7 @@ namespace App\Repositories\Contracts;
 
 interface AutoRepository
 {
-    public function __contruct(auto $model);
+    public function __construct(auto $model);
 
     public function GetAllTravelersByName($sName);
     

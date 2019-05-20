@@ -8,7 +8,7 @@ class EloquentAuto implements AutoRepository
 {
     private $autoModel;
     
-    public function __contruct(auto $model){
+    public function __construct(auto $model){
         $this->autoModel = $model;
     }
 
