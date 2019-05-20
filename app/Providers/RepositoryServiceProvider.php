@@ -8,6 +8,8 @@
 
     namespace App\Providers;
     use Illuminate\Support\ServiceProvider;
+    use App\Repositories\Contracts\InfoRepositoryBackend;
+    use App\Repositories\Eloquent\EloquentInfoBackend;
     use App\Repositories\Contracts\AutoRepositoryBackend;
     use App\Repositories\Eloquent\EloquentAutoBackend;
 
@@ -15,6 +17,7 @@
     {
         public function register()
         {
+            $this->app->singleton(InfoRepositoryBackend::class, EloquentInfoBackend::class);
             $this->app->singleton(AutoRepositoryBackend::class, EloquentAutoBackend::class);
         }
     }

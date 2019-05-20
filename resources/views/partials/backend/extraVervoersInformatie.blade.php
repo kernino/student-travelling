@@ -1,7 +1,7 @@
 @extends('partials.backend.index')
 
 @section('container')
-<h1>Vervoer</h1>
+<h1>Extra vervoers informatie</h1>
 <form method="POST" class="htmlEditor" action="/admin/vervoer">
     <div>
         <input type="hidden" value="{{ $AutoContent->auto_id ?? "" }}" name="auto_id" />

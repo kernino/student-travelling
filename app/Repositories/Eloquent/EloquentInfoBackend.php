@@ -17,7 +17,8 @@ class EloquentInfoBackend implements InfoRepositoryBackend
     }
 
     public function saveInfo(array $infoContent) {
-        
+        $this->model->create(["general_info" => $infoContent["content"]]);
+        return $infoContent;
     }
 
 }

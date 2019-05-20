@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlgemeneInfo extends Migration
+class Info extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class AlgemeneInfo extends Migration
             $table->string('general_info');
             $table->text('flight_info');
             $table->integer('trip_id');
-            $table->foreign('trip_id')->references('trip_id')->on('trips');
+            //$table->foreign('trip_id')->references('trip_id')->on('trips');
             $table->timestamps();
         });   
     }

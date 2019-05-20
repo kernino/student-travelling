@@ -8,6 +8,12 @@ use App\Repositories\Contracts\InfoRepositoryBackend;
 
 class InfoController extends Controller
 {
+    private $Info;
+    
+    public function __construct(InfoRepositoryBackend $Info) {
+        $this->Info = $Info;
+    }
+    
     public function index() {
         return view('partials.backend.info');
     }
@@ -21,8 +27,10 @@ class InfoController extends Controller
         
         if(request()->save == "Opslaan") {
             if(request()->info_type == "algemeneInfo") {
-                $infoContent["type"] = "";
-                return request()->info_content;
+                $infoContent["type"] = "general_info";
+                $infoContent["content"] = request()->info_content;
+                return $this->Info->saveInfo($infoContent);
+                //return request()->info_content;
             }
             return redirect()->route('info_backend');
             
