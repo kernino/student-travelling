@@ -10,11 +10,14 @@
     use Illuminate\Support\ServiceProvider;
     use App\Repositories\Contracts\AutoRepositoryBackend;
     use App\Repositories\Eloquent\EloquentAutoBackend;
+    use App\Repositories\Contracts\HotelRepository;
+    use App\Repositories\Eloquent\EloquentHotel;
 
     class RepositoryServiceProvider extends ServiceProvider
     {
         public function register()
         {
             $this->app->singleton(AutoRepositoryBackend::class, EloquentAutoBackend::class);
+            $this->app->singleton(HotelRepository::class, EloquentHotel::class);
         }
     }

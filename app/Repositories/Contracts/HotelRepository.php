@@ -4,9 +4,7 @@ namespace App\Repositories\Contracts;
 
 interface HotelRepository
 {
-    public function __construct (hotel $model);
-    
-    public function GetTravellersByName($sName);
+    public function GetTravellersByName(string $sName);
     
     public function GetAllTravellersPerRoom();
     

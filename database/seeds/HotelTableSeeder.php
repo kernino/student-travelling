@@ -17,7 +17,8 @@ class HotelTableSeeder extends Seeder
             'hotel_name' => Str::random(5),
             'address' => Str::random(15),
             'phone' => Str::random(10),
-            'hotel_information' => Str::random(100)
+            'hotel_information' => Str::random(100),
+            'photo_file_path' => Str::random(10)
         ]);
         
         DB::table('hotels')->insert([
@@ -25,7 +26,8 @@ class HotelTableSeeder extends Seeder
             'hotel_name' => Str::random(5),
             'address' => Str::random(15),
             'phone' => Str::random(10),
-            'hotel_information' => Str::random(100)
+            'hotel_information' => Str::random(100),
+            'photo_file_path' => Str::random(10)
         ]);
                 
         DB::table('hotels')->insert([
@@ -33,7 +35,8 @@ class HotelTableSeeder extends Seeder
             'hotel_name' => Str::random(5),
             'address' => Str::random(15),
             'phone' => Str::random(10),
-            'hotel_information' => Str::random(100)
+            'hotel_information' => Str::random(100),
+            'photo_file_path' => Str::random(10)
         ]);
         
         DB::table('hotels')->insert([
@@ -41,7 +44,61 @@ class HotelTableSeeder extends Seeder
             'hotel_name' => Str::random(5),
             'address' => Str::random(15),
             'phone' => Str::random(10),
-            'hotel_information' => Str::random(100)
+            'hotel_information' => Str::random(100),
+            'photo_file_path' => Str::random(10)
         ]);
+        
+        $travellers = DB::table('travellers')->get();
+        
+       
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 1,
+                'traveller_id' => $travellers[0]->traveller_id
+            ]);
+            
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 1,
+                'traveller_id' => $travellers[5]->traveller_id
+            ]);
+            
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 2,
+                'traveller_id' => $travellers[3]->traveller_id
+            ]);
+            
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 2,
+                'traveller_id' => $travellers[2]->traveller_id
+            ]);
+            
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 2,
+                'traveller_id' => $travellers[4]->traveller_id
+            ]);
+                        
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 3,
+                'traveller_id' => $travellers[6]->traveller_id
+            ]);
+                                    
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 3,
+                'traveller_id' => $travellers[7]->traveller_id
+            ]);
+            
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 3,
+                'traveller_id' => $travellers[8]->traveller_id
+            ]);
+            
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 3,
+                'traveller_id' => $travellers[9]->traveller_id
+            ]);
+            
+            DB::table('travellers_rooms')->insert([
+                'room_id' => 4,
+                'traveller_id' => $travellers[1]->traveller_id
+            ]);
     }
 }
