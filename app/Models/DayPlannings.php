@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Planning extends Model
+class DaysPlannings extends Model
 {
-    protected $primaryKey = 'planning_id';
+    protected $primaryKey = 'dayPlanning_id';
     
     public function PlanningTrips(){
         return $this->belongsTo('App\Models\PlanningTrips');

@@ -13,12 +13,11 @@ class Info extends Migration
      */
     public function up()
     {
-        Schema::create('info', function (Blueprint $table) {
+        Schema::create('infos', function (Blueprint $table) {
             $table->increments('info_id')->unique();
             $table->string('general_info');
             $table->text('flight_info');
-            $table->integer('trip_id');
-            //$table->foreign('trip_id')->references('trip_id')->on('trips');
+            $table->unsignedBigInteger('trip_id');
             $table->timestamps();
         });   
     }
@@ -30,6 +29,6 @@ class Info extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('info');
+        Schema::dropIfExists('infos');
     }
 }

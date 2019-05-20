@@ -15,8 +15,8 @@ class TravellersAutos extends Migration
     {
         Schema::create('travellers_autos', function (Blueprint $table) {
             $table->increments('traveller_auto_id')->unique();
-            $table->string('auto_trip_id');
-            $table->string('traveller_id');
+            $table->unsignedInteger('auto_trip_id');
+            $table->unsignedInteger('traveller_id');
             $table->timestamps();
             //$table->foreign('auto_trip_id')->references('auto_trip_id')->on('autos_trips');
             //$table->foreign('traveller_id')->references('traveller_id')->on('travellers');
