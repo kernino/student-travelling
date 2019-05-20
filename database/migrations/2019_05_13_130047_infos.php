@@ -17,7 +17,6 @@ class Infos extends Migration
             $table->increments('info_id')->unique();
             $table->text('name')->nullable();
             $table->text('content')->nullable();
-            $table->unsignedBigInteger('trip_id');
             $table->timestamps();
         });   
     }
