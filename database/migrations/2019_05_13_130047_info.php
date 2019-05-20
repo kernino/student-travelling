@@ -15,8 +15,8 @@ class Info extends Migration
     {
         Schema::create('info', function (Blueprint $table) {
             $table->increments('info_id')->unique();
-            $table->string('general_info');
-            $table->text('flight_info');
+            $table->text('general_info')->nullable();
+            $table->text('flight_info')->nullable();
             $table->unsignedBigInteger('trip_id');
             $table->timestamps();
         });   
