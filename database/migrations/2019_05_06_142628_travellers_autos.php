@@ -17,6 +17,7 @@ class TravellersAutos extends Migration
             $table->increments('traveller_auto_id')->unique();
             $table->unsignedInteger('auto_trip_id');
             $table->unsignedInteger('traveller_id');
+            $table->string('role');
             $table->timestamps();
         });
     }
