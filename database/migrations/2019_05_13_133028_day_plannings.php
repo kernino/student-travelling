@@ -13,8 +13,8 @@ class Planning extends Migration
      */
     public function up()
     {
-        Schema::create('planning', function (Blueprint $table) {
-            $table->increments('planning_id')->unique();
+        Schema::create('day_plannings', function (Blueprint $table) {
+            $table->increments('day_planning_id')->unique();
             $table->string('name');
             $table->date('date');
             $table->string('end_location');
@@ -31,6 +31,6 @@ class Planning extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('planning');
+        Schema::dropIfExists('day_plannings');
     }
 }
