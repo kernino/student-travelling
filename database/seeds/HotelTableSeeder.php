@@ -52,56 +52,56 @@ class HotelTableSeeder extends Seeder
         
         $roomsPerHotelPerTrip = DB::table('rooms_hotels_trips')->get();
          
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[0]->room_hotel_trip_id,
-                'traveller_id' => $travellers[0]->traveller_id
-            ]);
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[0]->room_hotel_trip_id,
+            'traveller_id' => $travellers[0]->traveller_id
+        ]);
 
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[0]->room_hotel_trip_id,
-                'traveller_id' => $travellers[5]->traveller_id
-            ]);
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[0]->room_hotel_trip_id,
+            'traveller_id' => $travellers[5]->traveller_id
+        ]);
 
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[0]->room_hotel_trip_id,
-                'traveller_id' => $travellers[3]->traveller_id
-            ]);
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[0]->room_hotel_trip_id,
+            'traveller_id' => $travellers[3]->traveller_id
+        ]);
 
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[0]->room_hotel_trip_id,
-                'traveller_id' => $travellers[2]->traveller_id
-            ]);
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[0]->room_hotel_trip_id,
+            'traveller_id' => $travellers[2]->traveller_id
+        ]);
 
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[1]->room_hotel_trip_id,
-                'traveller_id' => $travellers[4]->traveller_id
-            ]);
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[1]->room_hotel_trip_id,
+            'traveller_id' => $travellers[4]->traveller_id
+        ]);
 
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[1]->room_hotel_trip_id,
-                'traveller_id' => $travellers[6]->traveller_id
-            ]);
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[1]->room_hotel_trip_id,
+            'traveller_id' => $travellers[6]->traveller_id
+        ]);
 
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[1]->room_hotel_trip_id,
-                'traveller_id' => $travellers[7]->traveller_id
-            ]);
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[1]->room_hotel_trip_id,
+            'traveller_id' => $travellers[7]->traveller_id
+        ]);
 
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[1]->room_hotel_trip_id,
-                'traveller_id' => $travellers[8]->traveller_id
-            ]);
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[1]->room_hotel_trip_id,
+            'traveller_id' => $travellers[8]->traveller_id
+        ]);
 
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[2]->room_hotel_trip_id,
-                'traveller_id' => $travellers[9]->traveller_id
-            ]);
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[2]->room_hotel_trip_id,
+            'traveller_id' => $travellers[9]->traveller_id
+        ]);
 
-            DB::table('travellers_rooms')->insert([
-                'room_hotel_trip_id' => $roomsPerHotelPerTrip[2]->room_hotel_trip_id,
-                'traveller_id' => $travellers[1]->traveller_id
-            ]);
-        
+        DB::table('travellers_rooms')->insert([
+            'room_hotel_trip_id' => $roomsPerHotelPerTrip[2]->room_hotel_trip_id,
+            'traveller_id' => $travellers[1]->traveller_id
+        ]);
+
         
     }
 }

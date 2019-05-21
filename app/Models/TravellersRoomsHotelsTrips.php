@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TravellersRoomsHotelsTrips extends Model
 {
-    protected $primaryKey = 'traveller_room_hotel_trip_id';
+    protected $primaryKey = 'traveller_room_id';
 
     public function Travellers(){
         return $this->belongsTo('App\Models\Travellers');
