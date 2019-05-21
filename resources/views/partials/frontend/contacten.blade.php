@@ -9,27 +9,21 @@
 @endsection
 
 @section('content')
-<h1>Vervoer Informatie</h1>
-<h2>Vliegtuig</h2>
-<div>{{ $flight->flight_info }}</div>
-<!--<h3>Algemene info:</h3>
-<p>{{ $flight->flight_Algemeneinfo }}</p>-->
-<hr>
-<h2>Auto</h2>
-<h3>Auto verdeling:</h3>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-<table style="width:100%" id="myTable">
-    @foreach ($aChaufers as $sChaufeur => $aTravellers)
-    <tr>
-        <th>{{ $auto->id }}</th>
-        @foreach ($travellers as $traveller)
-        <td>{{ $aTraveller->first_name }}<br>
-        {{ $aTraveller->phone }}</td>
+    
+    <h2>Contacten</h2>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <table style="width:100%" id="myTable">
+        @foreach ($aStudyNames as $iStudyName => $aTravellers)
+        <tr>
+            <th>Klas: {{ $iStudyName }}</th>
+            @foreach ($aTravellers as $aTraveller)
+            <td>{{ $aTraveller->first_name }}<br>
+            {{ $aTraveller->phone }}</td>
+            @endforeach
+        </tr>
         @endforeach
-    </tr>
-    @endforeach
-</table>
-<script>
+    </table>
+    <script>
     function myFunction() {
       var input, filter, table, tr, td, i, allTd;
       input = document.getElementById("myInput");
@@ -58,6 +52,7 @@
       }
     }
     </script>
+
 @endsection
 
 @section('scripts')
