@@ -16,7 +16,9 @@ class DaysPlanningsTrips extends Migration
         Schema::create('day_plannings_trips', function (Blueprint $table) {
             $table->increments('day_planning_trip_id')->unique();
             $table->integer('trip_id');
-            $table->integer('traveller_id');        
+            $table->foreign('trip_id')->references('trip_id')->on('trips');
+            $table->integer('traveller_id'); 
+            $table->foreign('traveller_id')->references('traveller_id')->on('travellers');
             $table->timestamps();
         });   
     }
