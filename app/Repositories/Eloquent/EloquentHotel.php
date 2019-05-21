@@ -18,25 +18,35 @@ class EloquentHotel implements HotelRepository
         return $travellers;
     }
     
-    public function GetAllTravellersPerRoom(){
+    public function GetAllTravellersPerRoom($hotel_id=1, $trip_id=1){
+        
         $travellers = DB::table('travellers')->get();
-        
-
-        foreach ($travellers as $traveller)
+        $hotel = DB::table('hotels_trips')->where('hotel_id', '=', $hotel_id)->where('trip_id', '=', $trip_id)->first();   
+        $rooms = DB::table('rooms_hotels_trips')->where('hotel_trip_id', '=', $hotel->hotel_trip_id)->get();
+           
+        foreach ($rooms as $room)
         {
-            $aRooms[] = DB::table('travellers_rooms')->where('traveller_id', '=', $traveller->traveller_id)->first();   
+            $travellerRooms = DB::table('travellers_rooms')->where('room_hotel_trip_id', '=', $room->room_hotel_trip_id)->get();
+            
+            foreach ($travellerRooms as $travellerRoom)
+            {
+                $travellersPerRoom[$room->room_number][] = DB::table('travellers')->where('traveller_id', '=', $travellerRoom->traveller_id)->first();
+            }
         }
-        
-        foreach ($aRooms as $aRoom)
-        {
-            $travellersPerRoom[$aRoom->room_id][] = DB::table('travellers')->where('traveller_id', '=', $aRoom->traveller_id)->first();
-        }
+      
         ksort($travellersPerRoom);
         
         return $travellersPerRoom;
     }
     
-    public function GetAllHotelData(){
-        return DB::table('hotels')->get();
+    public function GetAllHotelData($trip_id=1){
+        $hotels = DB::table('hotels_trips')->where('trip_id', '=', $trip_id)->get();
+        
+        foreach ($hotels as $hotel)
+        {
+            $aHotels[] = DB::table('hotels')->where('hotel_id', '=', $hotel->hotel_id)->first();
+        }
+        
+        return $aHotels;
     }
 }
