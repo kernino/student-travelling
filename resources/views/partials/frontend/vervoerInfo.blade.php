@@ -11,20 +11,27 @@
 @section('content')
 <h1>Vervoer Informatie</h1>
 <h2>Vliegtuig</h2>
-<div>{{ $flight->flight_info }}</div>
+<div></div>
 <!--<h3>Algemene info:</h3>
-<p>{{ $flight->flight_Algemeneinfo }}</p>-->
+<p></p>-->
 <hr>
 <h2>Auto</h2>
 <h3>Auto verdeling:</h3>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 <table style="width:100%" id="myTable">
-    @foreach ($aChaufers as $sChaufeur => $aTravellers)
+    @foreach ($aCars as $iCarId=>$aCar)
     <tr>
-        <th>{{ $auto->id }}</th>
-        @foreach ($travellers as $traveller)
-        <td>{{ $aTraveller->first_name }}<br>
-        {{ $aTraveller->phone }}</td>
+        <th>Chauffeurs auto {{ $iCarId }}</th>
+        @foreach ($aCar["drivers"] as $aDriver)
+        <td>{{ $aDriver->first_name }}<br>
+        {{ $aDriver->phone }}</td>
+        @endforeach
+    </tr>
+    <tr>
+        <th>Passagiers auto {{ $iCarId }}</th>
+        @foreach ($aCar["passengers"] as $aPassenger)
+        <td>{{ $aPassenger->first_name }}<br>
+        {{ $aPassenger->phone }}</td>
         @endforeach
     </tr>
     @endforeach

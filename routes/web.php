@@ -12,7 +12,7 @@
 */
 
 // frontend routes
-Route::get('/', 'HomeController@hotelData');
+Route::get('/', 'HomeController@autoData');
 
 
 // backend routes
