@@ -9,8 +9,20 @@
 @endsection
 
 @section('content')
+<h1>Telefoon nummers</h1>
+    <h2>Begeleiders</h2>
+        <table>
+        @foreach ($aBegeleiders as $aBegeleider => $aTravellers)
+        <tr>
+            <td>{{ $aTraveller->first_name }}<br>
+            {{ $aTraveller->phone }}</td>
+        </tr>
+        @endforeach
+    </table>
     
-    <h2>Contacten</h2>
+    <hr>
+    
+    <h2>Reizigers</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
     <table style="width:100%" id="myTable">
         @foreach ($aStudyNames as $iStudyName => $aTravellers)
