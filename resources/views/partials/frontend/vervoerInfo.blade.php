@@ -18,7 +18,7 @@
 <h2>Auto</h2>
 <h3>Auto verdeling:</h3>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-<table style="width:100%" id="myTable">
+<table style="width:100%;" id="myTable" >
     @foreach ($aCars as $iCarId=>$aCar)
     <tr>
         <th>Chauffeurs auto {{ $iCarId }}</th>
@@ -27,13 +27,16 @@
         {{ $aDriver->phone }}</td>
         @endforeach
     </tr>
+    
     <tr>
         <th>Passagiers auto {{ $iCarId }}</th>
         @foreach ($aCar["passengers"] as $aPassenger)
         <td>{{ $aPassenger->first_name }}<br>
         {{ $aPassenger->phone }}</td>
+        
         @endforeach
     </tr>
+    
     @endforeach
 </table>
 <script>

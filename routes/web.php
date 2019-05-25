@@ -12,7 +12,15 @@
 */
 
 // frontend routes
-Route::get('/', 'HomeController@autoData');
+Route::get('/login', function(){
+    return view("partials.frontend.login");
+})->name("login");
+Route::get('/', 'HomeController@getHomeData')->name("home");
+Route::get('/algemeneinfo', 'HomeController@getHomeData')->name("algemeen");
+Route::get('/hotelinfo', 'HomeController@getHomeData')->name("hotel");
+Route::get('/vervoerinfo', 'HotelController@getHomeData')->name("vervoer");
+
+
 
 
 // backend routes
