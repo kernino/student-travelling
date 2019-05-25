@@ -17,6 +17,9 @@
     
     use App\Repositories\Contracts\VervoerRepositoryBackend;
     use App\Repositories\Eloquent\EloquentVervoerBackend;
+    
+    use App\Repositories\Contracts\AutoRepository;
+    use App\Repositories\Eloquent\EloquentAuto;
 
     class RepositoryServiceProvider extends ServiceProvider
     {
@@ -27,5 +30,6 @@
             $this->app->singleton(HotelRepository::class, EloquentHotel::class);
             
             $this->app->singleton(VervoerRepositoryBackend::class, EloquentVervoerBackend::class);
+            $this->app->singleton(AutoRepository::class, EloquentAuto::class);
         }
     }

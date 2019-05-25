@@ -18,7 +18,16 @@ class TravellerTableSeeder extends Seeder
                 'first_name' => Str::Random(5),
                 'last_name' => Str::Random(10),
                 'email' => Str::random(10).'@gmail.com',
-                'phone' => Str::random(10)
+                'phone' => Str::random(10),
+                'country' => Str::random(10),
+                'study_name' => Str::random(10),
+                'address' => Str::random(10),
+                'gender' => Str::random(10),
+                'emergency_phone_1' => Str::random(10),
+                'emergency_phone_2' => Str::random(10),
+                'nationality' => Str::random(10),
+                'birthdate' => Str::random(10),
+                'birthplace' => Str::random(10)
             ]);
         }
 

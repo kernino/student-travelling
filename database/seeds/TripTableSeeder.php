@@ -21,7 +21,7 @@ class TripTableSeeder extends Seeder
             'start_date' => "21 mei 2019",
             'end_date' => "1 juni 2019",
             'destination' => "Verenigde Staten",
-            'transportation_info' => "<p>vliegtuig gevevens</p>"
+            'transportation_info' => Str::random(100)
         ]);
          
         DB::table('trips')->insert([
@@ -33,7 +33,7 @@ class TripTableSeeder extends Seeder
             'start_date' => "21 mei 2019",
             'end_date' => "1 juni 2019",
             'destination' => "Duitsland",
-            'transportation_info' => "<p>bus gevevens</p>"
+            'transportation_info' => Str::random(100)
         ]);
         
     }

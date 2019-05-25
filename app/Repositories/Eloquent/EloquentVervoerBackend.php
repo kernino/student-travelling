@@ -21,13 +21,9 @@ class EloquentVervoerBackend implements VervoerRepositoryBackend
         return \Illuminate\Support\Facades\DB::table('trips')->select("trip_id", "transportation_info")->where(["trip_id" => 1])->get();
     }
 
-    public function createVervoerContent(string $vervoerContent) {
-        \Illuminate\Support\Facades\DB::table('trips')->where(["trip_id" => 1])->update(["transportation_info" => $vervoerContent]);
-        //return $vervoerContent;
-    }
-
     public function updateVervoerContent(array $vervoerContent) {
-        return true;
+        return \Illuminate\Support\Facades\DB::table('trips')->where(["trip_id" => $vervoerContent["id"]])->update(["transportation_info" => $vervoerContent["content"]]);
+        //return $vervoerContent;
     }
 
 }

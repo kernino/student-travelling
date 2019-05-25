@@ -13,11 +13,12 @@ class TravellersRoomsHotelsTrips extends Migration
      */
     public function up()
     {
-        Schema::create('trht', function (Blueprint $table) {
-            $table->increments('traveller_room_hotel_trip_id')->unique();           
-            $table->string('room_hotel_trip_id')->nullable();
+        Schema::create('travellers_rooms', function (Blueprint $table) {
+            $table->increments('traveller_room_id')->unique();           
+            $table->unsignedInteger('room_hotel_trip_id');
+            $table->foreign('room_hotel_trip_id')->references('room_hotel_trip_id')->on('rooms_hotels_trips');
             $table->unsignedInteger('traveller_id');
-            $table->integer('room_id');
+            $table->foreign('traveller_id')->references('traveller_id')->on('travellers');
             $table->timestamps();
         });
     }
