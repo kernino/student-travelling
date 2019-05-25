@@ -1,1 +1,1 @@
-<pre <?php print_r($aRoomInfo) ?> </pre>
+<pre <?php print_r($aAuto) ?> </pre>

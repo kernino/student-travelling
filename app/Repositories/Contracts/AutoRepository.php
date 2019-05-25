@@ -8,5 +8,5 @@ interface AutoRepository
 
     public function GetAllTravelersByName($sName);
     
-    public function GetAllTravelersByAuto($iAutoId);
+    public function GetAllTravelersByAuto($trip);
 }

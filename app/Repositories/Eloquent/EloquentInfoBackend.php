@@ -17,7 +17,14 @@ class EloquentInfoBackend implements InfoRepositoryBackend
     }
 
     public function saveInfo(array $infoContent) {
-        
+        if( ($this->model->create(["general_info" => $infoContent["info"], "flight_info" => $infoContent["flight"]])) )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

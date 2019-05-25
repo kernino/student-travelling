@@ -44,17 +44,17 @@
         for (j=0; j < allTd.length; j++)
         {
           td = allTd[j];
-          if (td) 
-          {
-              if (td.innerHTML.toUpperCase().indexOf(filter) > -1) 
+
+              if (td.innerHTML.toUpperCase().includes(filter)) 
               {
                   tr[i].style.display = "";
+                  break;
               } 
               else 
               {
                   tr[i].style.display = "none";
               }
-          } 
+          
         }  
       }
     }
