@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="htmlContent">
-        <h1>{{ $Trips[0]->name }}</h1>
+        <h1>{{-- $Trips[0]->name-- }}</h1>
         <p class="date">{{-- $aTrips[0]->start_date --}} - {{-- $aTrips[0]->end_date --}}</p>
         
         <table class="table-borderless">
