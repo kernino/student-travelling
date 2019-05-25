@@ -20,6 +20,9 @@
     
     use App\Repositories\Contracts\AutoRepository;
     use App\Repositories\Eloquent\EloquentAuto;
+    
+    use App\Repositories\Contracts\PlanningRepository;
+    use App\Repositories\Eloquent\EloquentPlanning;
 
     class RepositoryServiceProvider extends ServiceProvider
     {
@@ -31,5 +34,6 @@
             
             $this->app->singleton(VervoerRepositoryBackend::class, EloquentVervoerBackend::class);
             $this->app->singleton(AutoRepository::class, EloquentAuto::class);
+            $this->app->singleton(PlanningRepository::class, EloquentPlanning::class);
         }
     }
