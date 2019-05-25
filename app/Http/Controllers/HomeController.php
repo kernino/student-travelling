@@ -13,11 +13,11 @@ class HomeController extends Controller
 
     }
     
-    public function saveTravelCode(Request $request, $userCode)
+    public function saveTravelCode(Request $request)
     {
-        $trip = DB::table('trips')->where('travel_code', '=', $userCode)->first();
+        $trip = DB::table('trips')->where('travel_code', '=', $request->input("code"))->first();
         
-        $request->session()->put('code', $travelCode->travel_code);
+        $request->session()->put('code', $trip->travel_code);
         
         return redirect()->route('home');
     }
@@ -28,7 +28,7 @@ class HomeController extends Controller
             
             $tripCode = $request->session()->get('code');
         
-            $aHomeData = DB::table('trips')->where('travel_code', '=', $tripCode);  
+            $aHomeData = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
         
             return view('partials.frontend.index', ["aHomeData" => $aHomeData]);
         }

@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,7 +13,7 @@
           Info
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ route('algmeen') }}">Algemene Info</a>
+          <a class="dropdown-item" href="{{ route('algemeen') }}">Algemene Info</a>
           <a class="dropdown-item" href="{{ route('hotel') }}">Hotel Info</a>
           <a class="dropdown-item" href="{{ route('vervoer') }}">Vervoer Info</a>
         </div>

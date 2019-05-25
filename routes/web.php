@@ -13,12 +13,15 @@
 
 // frontend routes
 Route::get('/login', function(){
-    return view("partials.frontend.login");
+    return view("partials.frontend.inlogScherm");
 })->name("login");
+Route::get('/savecode', 'HomeController@saveTravelCode')->name("saveCode");
 Route::get('/', 'HomeController@getHomeData')->name("home");
 Route::get('/algemeneinfo', 'HomeController@getHomeData')->name("algemeen");
-Route::get('/hotelinfo', 'HomeController@getHomeData')->name("hotel");
-Route::get('/vervoerinfo', 'HotelController@getHomeData')->name("vervoer");
+Route::get('/hotelinfo', 'HotelController@getHotelData')->name("hotel");
+Route::get('/vervoerinfo', 'AutoController@getAutoData')->name("vervoer");
+Route::get('/planning', 'HotelController@getHomeData')->name("planning");
+Route::get('/contact', 'HotelController@getHomeData')->name("contact");
 
 
 

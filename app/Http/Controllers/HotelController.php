@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\HotelRepository;
 use App\Models\Hotels;
+use Illuminate\Support\Facades\DB;
+
 
 class HotelController extends Controller
 {
@@ -15,7 +17,7 @@ class HotelController extends Controller
         
     }
         
-    public function hotelData(Request $request){
+    public function getHotelData(Request $request){
         
         if ($request->session()->has('code')) {
             

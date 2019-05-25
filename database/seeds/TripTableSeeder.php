@@ -21,6 +21,7 @@ class TripTableSeeder extends Seeder
             'start_date' => "21 mei 2019",
             'end_date' => "1 juni 2019",
             'destination' => "Verenigde Staten",
+            'travel_code' => "12345",
             'transportation_info' => Str::random(100)
         ]);
          
@@ -33,6 +34,7 @@ class TripTableSeeder extends Seeder
             'start_date' => "21 mei 2019",
             'end_date' => "1 juni 2019",
             'destination' => "Duitsland",
+            'travel_code' => "678910",
             'transportation_info' => Str::random(100)
         ]);
         
