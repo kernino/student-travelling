@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Info extends Migration
+class Infos extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,8 @@ class Info extends Migration
     {
         Schema::create('infos', function (Blueprint $table) {
             $table->increments('info_id')->unique();
-            $table->string('general_info');
-            $table->text('flight_info');
-            $table->unsignedBigInteger('trip_id');
+            $table->text('name')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
         });   
     }
@@ -29,6 +28,6 @@ class Info extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('infos');
+        Schema::dropIfExists('info');
     }
 }
