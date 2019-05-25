@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Contracts\PlanningRepository;
-use App\Models\Planning;
+use App\Models\DaysPlannings;
 
 class PlanningController extends Controller
 {
@@ -27,4 +27,6 @@ class PlanningController extends Controller
         $listOfPlanningen = $this->planningBackend->GetAllPlanningen();
         return view('partials.backend.planning', array('listOfPlanningen' => $listOfPlanningen));
     }
+    
+    
 }
