@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\AutoRepository;
-use App\Models\Auto;
+use App\Models\Autos;
 use Illuminate\Support\Facades\DB;
 
 class EloquentAuto implements AutoRepository

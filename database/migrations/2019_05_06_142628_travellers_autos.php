@@ -21,6 +21,8 @@ class TravellersAutos extends Migration
             $table->foreign('traveller_id')->references('traveller_id')->on('travellers');
             $table->string('role');
             $table->timestamps();
+            //$table->foreign('auto_trip_id')->references('auto_trip_id')->on('autos_trips');
+            //$table->foreign('traveller_id')->references('traveller_id')->on('travellers');
         });
     }
 

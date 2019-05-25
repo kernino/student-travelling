@@ -15,6 +15,8 @@ class DaysPlannings extends Migration
     {
         Schema::create('days_plannings', function (Blueprint $table) {
             $table->increments('day_planning_id')->unique();
+            $table->unsignedInteger('planning_id');
+            $table->foreign('planning_id')->references('planning_id')->on('plannings');
             $table->string('name');
             $table->date('date');
             $table->string('end_location');
