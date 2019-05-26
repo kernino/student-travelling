@@ -9,9 +9,9 @@ class EloquentPlanning implements PlanningRepository
     
     private $model;
     
-    public function __construct(Plannings $model) {
-        $this->planningModel = $model;
-
+    
+    public function __construct(DaysPlannings $model) {
+        $this->model = $model;
     }
         
     public function GetPLanning() {

@@ -13,20 +13,19 @@ class PlanningController extends Controller
 {
     private $planningBackend;
     private $planningFrontend;
+
+
     
-    public function __construct(PlanningRepository $planningBackend, DayPlanningRepository $planningFrontend) {
+
+    public function __construct(PlanningRepository $planningBackend, ayPlanningRepository $planningFrontend) {
         $this->planningBackend = $planningBackend;
         $this->planningFrontend = $planningFrontend;
     } 
-    
-  
-    public function GetPlanning(){
-        ;
-    }
+
    
-    public function GetTrip($sTrip){
-        $aPlanning = $this->planningBackend->GetTrip($sTrip);
-        return view('planning.view', array('planning' => $aPlanning));
+    public function GetAllPlanningen(){
+        $listOfPlanningen = $this->planningBackend->GetAllPlanningen();
+        return view('partials.backend.planning', array('listOfPlanningen' => $listOfPlanningen));
     }
     
     public function GetTripPlanning(Request $request){
@@ -44,11 +43,4 @@ class PlanningController extends Controller
             return redirect()->route('login');
         }
     }
-    
-    public function GetAllPlanningen(){
-        $listOfPlanningen = $this->planningBackend->GetAllPlanningen();
-        return view('partials.backend.planning', array('listOfPlanningen' => $listOfPlanningen));
-    }
-    
-    
-}
+}   
