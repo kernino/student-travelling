@@ -22,15 +22,34 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
     
+    public function readAndAccepted(Request $request)
+    {
+        $request->session()->put('regulations', "accepted");
+        
+        return redirect()->route('home');
+    }
+    
     public function getHomeData(Request $request){
         
         if ($request->session()->has('code')) {
-            
-            $tripCode = $request->session()->get('code');
-        
-            $aHomeData = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
-        
-            return view('partials.frontend.index', ["aHomeData" => $aHomeData]);
+            if (!$request->session()->has('regulations')) {   
+                    $sAccepted = "AlgemeneAfspraken";
+                    
+                    $tripCode = $request->session()->get('code');
+
+                    $aHomeData = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
+
+                    return view('partials.frontend.index', ["aHomeData" => $aHomeData, "sAccepted" => $sAccepted]);
+                
+            }
+            else
+            {
+                    $tripCode = $request->session()->get('code');
+
+                    $aHomeData = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
+
+                    return view('partials.frontend.index', ["aHomeData" => $aHomeData, "sAccepted" => ""]);
+            }
         }
         else
         {

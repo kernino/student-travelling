@@ -16,7 +16,7 @@ Route::get('/login', function(){
     return view("partials.frontend.inlogScherm");
 })->name("login");
 Route::get('/savecode', 'HomeController@saveTravelCode')->name("saveCode");
-Route::get('/accepted', 'HomeController@acceptedConditions')->name("accepted");
+Route::get('/accepted', 'HomeController@readAndAccepted')->name("accepted");
 Route::get('/', 'HomeController@getHomeData')->name("home");
 Route::get('/algemeneinfo', 'HomeController@getHomeData')->name("algemeen");
 Route::get('/hotelinfo', 'HotelController@getHotelData')->name("hotel");
