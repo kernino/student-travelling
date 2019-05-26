@@ -11,8 +11,5 @@ class DaysPlannings extends Model
     public function DaysPlanningsTrips(){
         return $this->hasMany('App\Models\DayPlanningTrips');
     }
-    
-    public function Plannings(){
-        return $this->belongsTo('App\Models\Plannings');
-    }
+
 }
