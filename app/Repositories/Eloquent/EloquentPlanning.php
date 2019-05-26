@@ -2,7 +2,8 @@
 
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\PlanningRepository;
-use App\Models\Planning;
+use App\Models\Plannings;
+use Illuminate\Support\Facades\DB;
 
 class EloquentPlanning implements PlanningRepository
 {
@@ -18,8 +19,26 @@ class EloquentPlanning implements PlanningRepository
      * @param Planning $model
      */
     
-    public function __construct(Planning $model) {
+    public function __construct(Plannings $model) {
         $this->planningModel = $model;
+    }
+    
+    public function GetTripPLanning($tripId) {
+        
+        $aAllPlanningsPerTrip = DB::table("day_plannings_trips")->where("trip_id", "=", $tripId)->get();
+        
+        foreach($aAllPlanningsPerTrip as $aPlanningPerTrip)
+        {
+            $aDayPlannings = DB::table("days_plannings")->where("day_planning_id", "=", $aPlanningPerTrip->day_planning_id)->get();     
+            
+            foreach ($aDayPlannings as $aDayPlanning)
+            {
+                $aPlanning[$aDayPlanning->end_location][] = $aDayPlanning; 
+            }
+                  
+        }
+        
+        return $aPlanning;
     }
     
     public function GetPLanning() {

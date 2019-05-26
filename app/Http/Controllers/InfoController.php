@@ -5,15 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\InfoRepositoryBackend;
+use App\Repositories\Contracts\AlgemeneInfoRepository;
 
 class InfoController extends Controller
 {
     private $Info;
+    private $algemeneInfo;
     
-    public function __construct(InfoRepositoryBackend $Info) {
+    public function __construct(InfoRepositoryBackend $Info, AlgemeneInfoRepository $algemeneInfo) {
         $this->Info = $Info;
+        $this->algemeneInfo = $algemeneInfo;
     }
     
+    //Frontend
+    
+    public function getAlgemeneInfo()
+    {
+        $aAlgemeneInfo = $this->algemeneInfo->getAlgemeneInfo();
+        
+        return view('partials.frontend.algemeneInfo', ["aAlgemeneInfo" => $aAlgemeneInfo])
+    }
+    
+    //Backend
     public function index() {
         return view('partials.backend.info');
     }

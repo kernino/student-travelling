@@ -23,7 +23,7 @@
     <tr>
         <th>Chauffeurs auto {{ $iCarId }}</th>
         @foreach ($aCar["drivers"] as $aDriver)
-        <td>{{ $aDriver->first_name }}<br>
+        <td>{{ $aDriver->first_name }} {{ $aDriver->last_name }}<br>
         {{ $aDriver->phone }}</td>
         @endforeach
     </tr>
@@ -31,8 +31,8 @@
     <tr>
         <th>Passagiers auto {{ $iCarId }}</th>
         @foreach ($aCar["passengers"] as $aPassenger)
-        <td>{{ $aPassenger->first_name }}<br>
-        {{ $aPassenger->phone }}</td>
+        <td>{{ $aPassenger->first_name }} {{ $aPassenger->last_name }}<br>
+        {{ $aPassenger->major_name }}</td>
         
         @endforeach
     </tr>

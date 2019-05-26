@@ -31,65 +31,50 @@ class TransportationTableSeeder extends Seeder
         }
         
         $autosPerTrip = DB::table('autos_trips')->get();
-        
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[0]->auto_trip_id,
-           'traveller_id' => $travellers[0]->traveller_id,
-           'role' => 'driver'
-        ]);
-
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[0]->auto_trip_id,
-           'traveller_id' => $travellers[1]->traveller_id,
-           'role' => 'driver'
-        ]);
-
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[0]->auto_trip_id,
-           'traveller_id' => $travellers[2]->traveller_id,
-           'role' => 'passenger'
-        ]);            
-
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[0]->auto_trip_id,
-           'traveller_id' => $travellers[3]->traveller_id,
-           'role' => 'passenger'
-        ]);
-
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[0]->auto_trip_id,
-           'traveller_id' => $travellers[4]->traveller_id,
-           'role' => 'passenger'
-        ]);
-
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[1]->auto_trip_id,
-           'traveller_id' => $travellers[5]->traveller_id,
-           'role' => 'driver'
-        ]);
-
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[1]->auto_trip_id,
-           'traveller_id' => $travellers[6]->traveller_id,
-           'role' => 'driver'
-        ]);
-
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[1]->auto_trip_id,
-           'traveller_id' => $travellers[7]->traveller_id,
-           'role' => 'passenger'
-        ]);            
-
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[1]->auto_trip_id,
-           'traveller_id' => $travellers[8]->traveller_id,
-           'role' => 'passenger'
-        ]);
-
-        DB::table('travellers_autos')->insert([
-           'auto_trip_id' => $autosPerTrip[1]->auto_trip_id,
-           'traveller_id' => $travellers[9]->traveller_id,
-           'role' => 'passenger'
-        ]);
+        $drivers = 0;
+        $passengers = 0;
+        foreach ($travellers as $traveller)
+        {
+            if (isset($traveller->major_name))
+            {
+                $passengers++;
+                if ($passengers < 4)
+                {
+                    DB::table('travellers_autos')->insert([
+                        'auto_trip_id' => $autosPerTrip[0]->auto_trip_id,
+                        'traveller_id' => $traveller->traveller_id,
+                        'role' => 'passenger'
+                    ]);
+                }
+                else
+                {
+                    DB::table('travellers_autos')->insert([
+                        'auto_trip_id' => $autosPerTrip[1]->auto_trip_id,
+                        'traveller_id' => $traveller->traveller_id,
+                        'role' => 'passenger'
+                    ]);
+                }
+            }
+            else
+            {
+                $drivers++;
+                if ($drivers < 3)
+                {
+                    DB::table('travellers_autos')->insert([
+                        'auto_trip_id' => $autosPerTrip[0]->auto_trip_id,
+                        'traveller_id' => $traveller->traveller_id,
+                        'role' => 'driver'
+                    ]);  
+                }
+                else
+                {
+                    DB::table('travellers_autos')->insert([
+                        'auto_trip_id' => $autosPerTrip[1]->auto_trip_id,
+                        'traveller_id' => $traveller->traveller_id,
+                        'role' => 'driver'
+                    ]);                        
+                }
+            }                
+        }
     }
 }

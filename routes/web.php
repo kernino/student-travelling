@@ -20,8 +20,8 @@ Route::get('/', 'HomeController@getHomeData')->name("home");
 Route::get('/algemeneinfo', 'HomeController@getHomeData')->name("algemeen");
 Route::get('/hotelinfo', 'HotelController@getHotelData')->name("hotel");
 Route::get('/vervoerinfo', 'AutoController@getAutoData')->name("vervoer");
-Route::get('/planning', 'HotelController@getHomeData')->name("planning");
-Route::get('/contact', 'HotelController@getHomeData')->name("contact");
+Route::get('/planning', 'PlanningController@getTripPlanning')->name("planning");
+Route::get('/contact', 'ContactController@getContacts')->name("contact");
 
 
 
