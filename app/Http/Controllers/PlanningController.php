@@ -3,30 +3,64 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Contracts\PlanningRepository;
-use App\Models\DaysPlannings;
+use App\Repositories\Contracts\DayPlanningRepository;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
 
 class PlanningController extends Controller
 {
     private $planningBackend;
-    
-    public function __construct(PlanningRepository $planningBackend) {
+    private $planningFrontend;
+
+
+    public function __construct(PlanningRepository $planningBackend, DayPlanningRepository $planningFrontend) {
         $this->planningBackend = $planningBackend;
+        $this->planningFrontend = $planningFrontend;
     } 
-    
-  
-    public function GetPlanning(){
-        ;
-    }
-   
-    public function GetTrip($sTrip){
-        $aPlanning = $this->planningBackend->GetTrip($sTrip);
-        return view('planning.view', array('planning' => $aPlanning));
-    }
-    
+
+
     public function GetAllPlanningen(){
-        $listOfPlanningen = $this->planningBackend->GetAllPlanningen();
-        return view('partials.backend.planning', array('listOfPlanningen' => $listOfPlanningen));
+         $aPlanningen = $this->planningBackend->GetAllPlanningen();              
+        $aTripData = $this->planningBackend->GetTripData();
+        return view('partials.backend.planning', ["aPlanningen" => $aPlanningen, "aTripData" => $aTripData]);
     }
     
+    public function GetPlanning(){
+        
+    }
     
-}
+    public function GetTripPlanning(Request $request){
+         if ($request->session()->has('code')) {
+            
+            $tripCode = $request->session()->get('code');
+            $trip = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
+            
+            $aPlanning = $this->planningFrontend->GetTripPLanning($trip->trip_id);
+            
+            return view('partials.frontend.planning', ["aPlanning" => $aPlanning]);
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
+    }
+    
+    public function GetDayPlanning(Request $request, $id)
+    {
+        if ($request->session()->has('code')) {
+                      
+            $aDayPlanning = $this->planningFrontend->GetDayPlanning($id);
+            
+            return view('partials.frontend.planningDay', ["aPlanning" => $aDayPlanning]);
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
+    }
+}   
+
+    
+
+

@@ -1,1 +1,1 @@
-<pre <?php print_r($aAuto) ?> </pre>
+<pre <?php print_r($aPlanning) ?> </pre>

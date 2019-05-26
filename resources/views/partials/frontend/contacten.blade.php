@@ -12,10 +12,10 @@
 <h1>Telefoon nummers</h1>
     <h2>Begeleiders</h2>
         <table>
-        @foreach ($aBegeleiders as $aBegeleider => $aTravellers)
+        @foreach ($aContactData['mentors'] as $aBegeleider)
         <tr>
-            <td>{{ $aTraveller->first_name }}<br>
-            {{ $aTraveller->phone }}</td>
+            <td>{{ $aBegeleider->first_name }} {{ $aBegeleider->last_name }}<br>
+            {{ $aBegeleider->phone }}</td>
         </tr>
         @endforeach
     </table>
@@ -25,13 +25,15 @@
     <h2>Reizigers</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
     <table style="width:100%" id="myTable">
-        @foreach ($aStudyNames as $iStudyName => $aTravellers)
+        @foreach ($aContactData['students'] as $aStudents)
         <tr>
-            <th>Klas: {{ $iStudyName }}</th>
-            @foreach ($aTravellers as $aTraveller)
-            <td>{{ $aTraveller->first_name }}<br>
-            {{ $aTraveller->phone }}</td>
-            @endforeach
+            <td>
+                {{ $aStudents->first_name }} {{ $aStudents->last_name }}
+                <br>
+                {{ $aStudents->major_name }}
+                <br>
+                {{ $aStudents->phone }}
+            </td>
         </tr>
         @endforeach
     </table>

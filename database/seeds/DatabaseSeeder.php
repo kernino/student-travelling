@@ -12,12 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
-        $this->call(TravellerTableSeeder::class);
         $this->call(TripTableSeeder::class);
+        $this->call(TravellerTableSeeder::class);
+        
         $this->call(HotelTableSeeder::class);
         $this->call(TransportationTableSeeder::class);
-        //$this->call(DayPlanningTableSeeder::class);
+        $this->call(DayPlanningTableSeeder::class);
         $this->call(InfoTableSeeder::class);
     }
 }

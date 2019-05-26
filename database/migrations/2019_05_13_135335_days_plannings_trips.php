@@ -17,8 +17,8 @@ class DaysPlanningsTrips extends Migration
             $table->increments('day_planning_trip_id')->unique();
             $table->unsignedInteger('trip_id');
             $table->foreign('trip_id')->references('trip_id')->on('trips');
-            $table->unsignedInteger('traveller_id'); 
-            $table->foreign('traveller_id')->references('traveller_id')->on('travellers');
+            $table->unsignedInteger('day_planning_id'); 
+            $table->foreign('day_planning_id')->references('day_planning_id')->on('days_plannings');
             $table->timestamps();
         });   
     }

@@ -10,18 +10,16 @@
 
 @section('content')
 <h1>Planning</h1>
-        @foreach ($locations as location)
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{Planning->locatieFoto}}" alt="{{Planning->locatieNaam}}">
-          <div class="card-body">
-            <h5 class="card-title">{{Planning->locatieNaam}}</h5>
-            <p class="card-text">{{Planning->periode}}</p>
-            @foreach ($locations as location => periode(dag))
-            <a href="#" class="btn btn-primary">{{Planning->periodedag}}</a>
-            @endforeach
-          </div>
-        </div>
-        @endforeach
+@foreach ($aPlanning as $location => $dayPlannings)
+<div class="card mx-auto" style="width: 40rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{$location}}</h5>
+    @foreach ($dayPlannings as $day)
+    <a href="{{ route('DayPlanning',[ "id" => $day->day_planning_id]) }}" class="btn btn-primary">{{$day->date}}</a>
+    @endforeach
+  </div>
+</div>
+@endforeach
 @endsection
 
 @section('scripts')

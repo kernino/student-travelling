@@ -17,6 +17,7 @@ class Travellers extends Migration
             $table->increments('traveller_id')->unique();
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('major_name')->nullable();
             $table->string('email');   
             $table->string('country');
             $table->string('address');
@@ -25,7 +26,6 @@ class Travellers extends Migration
             $table->string('emergency_phone_1');
             $table->string('emergency_phone_2');
             $table->string('nationality');
-            $table->string('study_name');
             $table->string('birthdate');
             $table->string('birthplace');
             $table->timestamps();

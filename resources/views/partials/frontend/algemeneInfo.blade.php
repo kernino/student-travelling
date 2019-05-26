@@ -9,9 +9,9 @@
 @endsection
 
 @section('content')
-<h1>{{$aPlanning->date}}</h1>
-<h2>{{$aPlanning->end_location}}</h2>
-<div>{{$aPlanning->description}}</div>
+
+{{ $aAlgemeneInfo->content }}
+
 @endsection
 
 @section('scripts')

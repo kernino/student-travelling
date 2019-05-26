@@ -16,12 +16,14 @@ Route::get('/login', function(){
     return view("partials.frontend.inlogScherm");
 })->name("login");
 Route::get('/savecode', 'HomeController@saveTravelCode')->name("saveCode");
+Route::get('/accepted', 'HomeController@readAndAccepted')->name("accepted");
 Route::get('/', 'HomeController@getHomeData')->name("home");
 Route::get('/algemeneinfo', 'HomeController@getHomeData')->name("algemeen");
 Route::get('/hotelinfo', 'HotelController@getHotelData')->name("hotel");
 Route::get('/vervoerinfo', 'AutoController@getAutoData')->name("vervoer");
-Route::get('/planning', 'HotelController@getHomeData')->name("planning");
-Route::get('/contact', 'HotelController@getHomeData')->name("contact");
+Route::get('/planning', 'PlanningController@getTripPlanning')->name("planning");
+Route::get('/planning/{id}', 'PlanningController@getDayPlanning')->name("DayPlanning");
+Route::get('/contact', 'ContactController@getContacts')->name("contact");
 
 
 
