@@ -8,4 +8,3 @@ interface AutoRepository
     
     public function GetAllTravelersByAuto($trip);
 }
-}
