@@ -101,9 +101,14 @@ div#errors {
 
 .htmlContent h1 {
   text-align: center;
+  margin-top: 100px;
 }
 
 .date {
   text-align: center;
+}
+
+#content_container {
+  margin-top: 60px;
 }
 

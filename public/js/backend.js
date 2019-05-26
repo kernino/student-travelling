@@ -108,7 +108,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\homesteadProjects\student-travelling\resources\js\backend.js */"./resources/js/backend.js");
+module.exports = __webpack_require__(/*! G:\Homestead\student-travelling\resources\js\backend.js */"./resources/js/backend.js");
 
 
 /***/ })
