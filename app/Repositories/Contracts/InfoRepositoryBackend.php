@@ -4,7 +4,7 @@ namespace App\Repositories\Contracts;
 
 interface InfoRepositoryBackend
 {
-    public function getInfo();    
+    public function getAlgemeneInfo();
     public function saveInfo(array $infoContent);
 }
 
