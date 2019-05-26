@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Contracts\PlanningRepository;
 use App\Repositories\Contracts\DayPlanningRepository;
-use App\Models\Planning;
-use App\Models\DaysPlannings;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 

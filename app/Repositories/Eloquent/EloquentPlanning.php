@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\PlanningRepository;
-use App\Models\Plannings;
+use App\Models\DaysPlannings;
 
 class EloquentPlanning implements PlanningRepository
 {
@@ -10,7 +10,7 @@ class EloquentPlanning implements PlanningRepository
     private $model;
     
     
-    public function __construct(Plannings $model) {
+    public function __construct(DaysPlannings $model) {
         $this->model = $model;
     }
         
