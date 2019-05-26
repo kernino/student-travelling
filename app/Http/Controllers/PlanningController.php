@@ -21,8 +21,13 @@ class PlanningController extends Controller
 
 
     public function GetAllPlanningen(){
-        $listOfPlanningen = $this->planningBackend->GetAllPlanningen();
-        return view('partials.backend.planning', array('listOfPlanningen' => $listOfPlanningen));
+         $aPlanningen = $this->planningBackend->GetAllPlanningen();              
+        $aTripData = $this->planningBackend->GetTripData();
+        return view('partials.backend.planning', ["aPlanningen" => $aPlanningen, "aTripData" => $aTripData]);
+    }
+    
+    public function GetPlanning(){
+        
     }
     
     public function GetTripPlanning(Request $request){

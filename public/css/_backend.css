@@ -100,7 +100,8 @@ div#errors {
 }
 
 .htmlContent h1 {
-  text-align: center;
+  text-align: left;
+  margin-top: 50px;
 }
 
 .date {
