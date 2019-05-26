@@ -9,8 +9,6 @@ use App\Models\DaysPlannings;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-use App\Models\DaysPlannings;
-
 
 class PlanningController extends Controller
 {
@@ -18,7 +16,7 @@ class PlanningController extends Controller
     private $planningFrontend;
 
 
-    public function __construct(PlanningRepository $planningBackend, ayPlanningRepository $planningFrontend) {
+    public function __construct(PlanningRepository $planningBackend, DayPlanningRepository $planningFrontend) {
         $this->planningBackend = $planningBackend;
         $this->planningFrontend = $planningFrontend;
     } 

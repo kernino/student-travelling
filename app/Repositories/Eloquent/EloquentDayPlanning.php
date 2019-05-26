@@ -12,7 +12,7 @@ class EloquentDayPlanning implements DayPlanningRepository
     
 
     public function __construct(DaysPlannings $model) {
-        $this->planningModel = $model;
+        $this->model = $model;
 
     }
     
