@@ -40,6 +40,20 @@ class PlanningController extends Controller
             return redirect()->route('login');
         }
     }
+    
+    public function GetDayPlanning(Request $request, $id)
+    {
+        if ($request->session()->has('code')) {
+                      
+            $aDayPlanning = $this->planningFrontend->GetDayPlanning($id);
+            
+            return view('partials.frontend.planningDay', ["aPlanning" => $aDayPlanning]);
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
+    }
 }   
 
     
