@@ -9,37 +9,33 @@
 @endsection
 
 @section('content')
-<h1>Vervoer Informatie</h1>
-<h2>Vliegtuig</h2>
-<div></div>
-<!--<h3>Algemene info:</h3>
-<p></p>-->
-<hr>
-<h2>Auto</h2>
-<h3>Auto verdeling:</h3>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-<table style="width:100%;" id="myTable" >
-    @foreach ($aCars as $iCarId=>$aCar)
-    <tr>
-        <th>Chauffeurs auto {{ $iCarId }}</th>
-        @foreach ($aCar["drivers"] as $aDriver)
-        <td>{{ $aDriver->first_name }}<br>
-        {{ $aDriver->phone }}</td>
+<h1>Telefoon nummers</h1>
+    <h2>Begeleiders</h2>
+        <table>
+        @foreach ($aBegeleiders as $aBegeleider => $aTravellers)
+        <tr>
+            <td>{{ $aTraveller->first_name }}<br>
+            {{ $aTraveller->phone }}</td>
+        </tr>
         @endforeach
-    </tr>
+    </table>
     
-    <tr>
-        <th>Passagiers auto {{ $iCarId }}</th>
-        @foreach ($aCar["passengers"] as $aPassenger)
-        <td>{{ $aPassenger->first_name }}<br>
-        {{ $aPassenger->phone }}</td>
-        
+    <hr>
+    
+    <h2>Reizigers</h2>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <table style="width:100%" id="myTable">
+        @foreach ($aStudyNames as $iStudyName => $aTravellers)
+        <tr>
+            <th>Klas: {{ $iStudyName }}</th>
+            @foreach ($aTravellers as $aTraveller)
+            <td>{{ $aTraveller->first_name }}<br>
+            {{ $aTraveller->phone }}</td>
+            @endforeach
+        </tr>
         @endforeach
-    </tr>
-    
-    @endforeach
-</table>
-<script>
+    </table>
+    <script>
     function myFunction() {
       var input, filter, table, tr, td, i, allTd;
       input = document.getElementById("myInput");
@@ -68,6 +64,7 @@
       }
     }
     </script>
+
 @endsection
 
 @section('scripts')

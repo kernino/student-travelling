@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TravellersRooms extends Migration
+class TravellersRoomsHotelsTrips extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,9 @@ class TravellersRooms extends Migration
     {
         Schema::create('travellers_rooms', function (Blueprint $table) {
             $table->increments('traveller_room_id')->unique();           
-            $table->string('room_hotel_trip_id');
+            $table->unsignedInteger('room_hotel_trip_id');
             $table->foreign('room_hotel_trip_id')->references('room_hotel_trip_id')->on('rooms_hotels_trips');
-            $table->string('traveller_id');
+            $table->unsignedInteger('traveller_id');
             $table->foreign('traveller_id')->references('traveller_id')->on('travellers');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class TravellersRooms extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('travellers_rooms');
+        Schema::dropIfExists('trht');
     }
 }

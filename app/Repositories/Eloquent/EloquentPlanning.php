@@ -2,24 +2,16 @@
 
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\PlanningRepository;
-use App\Models\Planning;
+use App\Models\DaysPlannings;
 
 class EloquentPlanning implements PlanningRepository
 {
-    /**
-     *
-     * @var Planning 
-     */
-    private $planningModel;
     
-    /**
-     * EloquentPlanning constructor
-     * 
-     * @param Planning $model
-     */
+    private $model;
     
-    public function __construct(Planning $model) {
-        $this->planningModel = $model;
+    
+    public function __construct(DaysPlannings $model) {
+        $this->model = $model;
     }
     
     public function GetPLanning() {
@@ -34,9 +26,10 @@ class EloquentPlanning implements PlanningRepository
         } catch (PDOException $oEx) {
             return $oEx->getMessage();
         }
+        
     }
     
-    public function GetTrip($sTrip) {
+    public function GetTrip(string $sTrip) {
         $db = $this->db->pdo;
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         try{
@@ -51,7 +44,8 @@ class EloquentPlanning implements PlanningRepository
         }
     }
     
+    //backend
     public function GetAllPlanningen() {
-        return $this->planningModel->get();
+        return $this->model->get();
     }
 }

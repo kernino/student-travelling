@@ -2,9 +2,9 @@
 
 @section('container')
     <div class="htmlContent">
-        <h1>Reis Internationaal</h1>
-        <p class="date">12/06/2019 - 16/06/2019</p>
-
+        <h1>{{-- $Trips[0]->name-- }}</h1>
+        <p class="date">{{-- $aTrips[0]->start_date --}} - {{-- $aTrips[0]->end_date --}}</p>
+        
         <table class="table-borderless">
             <thead>
                 <tr>
@@ -13,54 +13,61 @@
             </thead>
             
             <tbody>
-                <tr>
-                    <td>					  
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Dag 1 - Nevada</h5>
-                                <p class="card-text">12/06/2019 <br> Las Vegas</p>
-                                <a href="#" class="btn btn-primary">Wijzig planning</a>
+                
+                @foreach ($listOfPlanningen as $daysplannings)
+                    @php
+                        $i = $daysplannings->day_planning_id;
+                    @endphp
+                    
+                    @if ($daysplannings->day_planning_id % 2 != 0 )			
+                        <tr>
+                        <td>					  
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">dag {{ $daysplannings->day_planning_id }} - {{$daysplannings->name}}</h5>
+                                    <p class="card-text">{{$daysplannings->date}} <br> {{$daysplannings->end_location}}</p>
+                                    <a href="#" class="btn btn-primary">Wijzig planning</a>
+                                </div>
                             </div>
-                        </div>
-                    </td>
+                        </td>
 
-                    <td class="vertical">
-                        <div class="alert alert-primary" role="alert">
-                            Planning onvolledig.
-                        </div>
-                    </td>
-
-                    <td>					  
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Dag 2 - Nevada</h5>
-                                <p class="card-text">13/06/2019 <br> Las Vegas</p>
-                                <a href="#" class="btn btn-primary">Wijzig planning</a>
+                        @if (empty($daysplannings->description) || empty($daysplannings->date) || empty($daysplannings->end_location))					
+                            <td class="vertical">
+                                <div class="alert alert-primary" role="alert">
+                                    Planning onvolledig.
+                                </div>
+                            </td>
+                        @else
+                        <td style="padding-left: 150px;"></td>
+                        @endif
+                       
+                    @else
+                        <td>					  
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">dag {{ $daysplannings->day_planning_id }} - {{$daysplannings->name}}</h5>
+                                    <p class="card-text">{{$daysplannings->date}} <br> {{$daysplannings->end_location}}</p>
+                                    <a href="#" class="btn btn-primary">Wijzig planning</a>
+                                </div>
                             </div>
-                        </div>
-                    </td>
+                        </td>
 
-                    <td class="vertical">
-                        <div class="alert alert-primary" role="alert">
-                            Planning onvolledig.
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Dag 3 - Nevada</h5>
-                                <p class="card-text">14/06/2019 <br> Death Valley</p>
-                                <a href="#" class="btn btn-primary">Wijzig planning</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="align-middle">
-
-                    </td>
-                </tr>
+                        @if (empty($daysplannings->description) || empty($daysplannings->date) || empty($daysplannings->end_location))					
+                            <td class="vertical">
+                                <div class="alert alert-primary" role="alert">
+                                    Planning onvolledig.
+                                </div>
+                            </td>
+                        @else
+                            <td style="padding-left: 150px;"></td>
+                        @endif		
+                        </tr>
+                    @endif
+                    
+                    @php
+                        $i++
+                    @endphp
+                @endforeach
             </tbody>
         </table>		
     </div>
@@ -69,5 +76,5 @@
 @endsection
 
 @section('page_specific_scripts')
-    
+<!--    <script>CKEDITOR.replace( 'listOfPlanningen' );</script>-->
 @endsection
