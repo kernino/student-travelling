@@ -11,7 +11,7 @@
 @section('content')
 <h1>Welkom bij UCLL reizen</h1>
 <h2>Gelieve uw reiscode in te geven</h2>
-<form action="{{ route("saveCode", ) }}">
+<form action="{{ route("saveCode") }}">
   <div class="form-group">
     <input type="text" class="form-control" name="code" id="code" placeholder="Reiscode..">
   </div>

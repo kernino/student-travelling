@@ -11,7 +11,7 @@
 @section('content')
 <h1>Planning</h1>
 @foreach ($aPlanning as $location => $dayPlannings)
-<div class="card" style="width: 35rem;">
+<div class="card mx-auto" style="width: 40rem;">
   <div class="card-body">
     <h5 class="card-title">{{$location}}</h5>
     @foreach ($dayPlannings as $day)
