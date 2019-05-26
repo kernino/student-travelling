@@ -87,7 +87,7 @@ div#errors {
 }
 
 .htmlContent {
-  margin-left: 150px;
+  margin-left: 100px;
 }
 
 .card {
@@ -101,10 +101,16 @@ div#errors {
 
 .htmlContent h1 {
   text-align: left;
-  margin-top: 50px;
+  margin-top: 100px;
+  margin-left: -20px;
 }
 
 .date {
-  text-align: center;
+  text-align: left;
+}
+
+.planningInput {
+  background-color: #FFF;
+  border: 1px solid #d1d1d1;
 }
 
