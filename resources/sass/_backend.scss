@@ -7,7 +7,6 @@ and open the template in the editor.
     Created on : Apr 29, 2019, 12:44:47 PM
     Author     : koend
 */
-
 .navbar-default {
   font-size: 1.15em;
   font-weight: 400;
@@ -87,7 +86,8 @@ div#errors {
 
 //planning css
 .htmlContent{
-	margin-left:150px;
+	margin-left:100px;
+
 }
 
 .card{
@@ -100,9 +100,17 @@ div#errors {
 }
 
 .htmlContent h1{
-	text-align:center;
+	text-align:left;
+	margin-top:100px ;
+        margin-left: -20px;
 }
 
 .date{
-	text-align:center;
+	text-align:left;
+
+}
+
+.planningInput{
+    background-color: #FFF; 
+    border:1px solid #d1d1d1;
 }

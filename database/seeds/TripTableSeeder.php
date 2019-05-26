@@ -20,7 +20,9 @@ class TripTableSeeder extends Seeder
             'contact_mail' => Str::random(10).'@gmail.com',
             'start_date' => "21 mei 2019",
             'end_date' => "1 juni 2019",
-            'destination' => "Verenigde Staten"
+            'destination' => "Verenigde Staten",
+            'travel_code' => "12345",
+            'transportation_info' => Str::random(100)
         ]);
          
         DB::table('trips')->insert([
@@ -31,7 +33,9 @@ class TripTableSeeder extends Seeder
             'contact_mail' => Str::random(10).'@gmail.com',
             'start_date' => "21 mei 2019",
             'end_date' => "1 juni 2019",
-            'destination' => "Duitsland"
+            'destination' => "Duitsland",
+            'travel_code' => "678910",
+            'transportation_info' => Str::random(100)
         ]);
         
     }

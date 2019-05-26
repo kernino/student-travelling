@@ -20,15 +20,23 @@
     <hr>
     <h2>Kamer indeling</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <table style="width:100%" id="myTable">
+    <table style="width:100%;" id="myTable">
         @foreach ($aRoomInfo as $iRoomId => $aTravellers)
         <tr>
             <th>Kamer {{ $iRoomId }}</th>
             @foreach ($aTravellers as $aTraveller)
-            <td>{{ $aTraveller->first_name }}<br>
-            {{ $aTraveller->phone }}</td>
+            <td>
+                {{ $aTraveller->first_name }} {{ $aTraveller->last_name }}
+                <br>
+                @if(isset($aTraveller->major_name))
+                {{ $aTraveller->major_name }}
+                @else
+                Begeleider
+                @endif
+            </td>
             @endforeach
         </tr>
+        <br>
         @endforeach
     </table>
     <script>
@@ -44,17 +52,17 @@
         for (j=0; j < allTd.length; j++)
         {
           td = allTd[j];
-          if (td) 
-          {
-              if (td.innerHTML.toUpperCase().indexOf(filter) > -1) 
+
+              if (td.innerHTML.toUpperCase().includes(filter)) 
               {
                   tr[i].style.display = "";
+                  break;
               } 
               else 
               {
                   tr[i].style.display = "none";
               }
-          } 
+          
         }  
       }
     }

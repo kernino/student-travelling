@@ -15,7 +15,6 @@ class Autos extends Migration
     {
         Schema::create('autos', function (Blueprint $table) {
             $table->increments('auto_id')->unique();
-            $table->string('auto_name');
             $table->string('size');
             $table->timestamps();
         });

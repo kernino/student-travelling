@@ -9,6 +9,10 @@ class TravellersAutos extends Model
     protected $primaryKey = 'traveller_auto_id';
     
     public function Travellers(){
-        return $this->hasMany('App\Models\Travellers');
+        return $this->belongsTo('App\Models\Travellers');
+    }
+    
+    public function AutosTrips(){
+        return $this->belongsTo('App\Models\AutosTrips');
     }
 }

@@ -11,6 +11,6 @@ class Autos extends Model
 
 
     public function AutosTrips(){
-        return $this->belongsTo('App\Models\AutoTrips');
+        return $this->hasMany('App\Models\AutoTrips');
     }
 }

@@ -1,8 +1,18 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
+
+class DaysPlanningsTrips extends Model
+{
+    protected $primaryKey = 'day_planning_trip_id';
+    
+    public function DaysPlannings(){
+        return $this->belongsTo('App\Models\PlanningTrips');
+    }
+    
+    public function Trips(){
+        return $this->belongsTo('App\Models\Trips');
+    }
+}
