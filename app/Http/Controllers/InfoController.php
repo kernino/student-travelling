@@ -22,7 +22,6 @@ class InfoController extends Controller
         // valideer het request, het transport_content veld moet ingevuld zijn
         $this->validate(request(), [
             'info_content' => 'required',
-            'flight_content' => 'required'
         ]);
         
         
@@ -30,7 +29,6 @@ class InfoController extends Controller
         if(request()->save == "Opslaan") {            
             $infoContent["type"] = "general_info";
             $infoContent["info"] = request()->info_content;
-            $infoContent["flight"] = request()->flight_content;
             
             return $this->Info->saveInfo($infoContent);
             
