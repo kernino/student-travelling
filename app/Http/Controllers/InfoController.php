@@ -23,7 +23,7 @@ class InfoController extends Controller
     {
         $aAlgemeneInfo = $this->algemeneInfo->getAlgemeneInfo();
         
-        return view('partials.frontend.algemeneInfo', ["aAlgemeneInfo" => $aAlgemeneInfo])
+        return view('partials.frontend.algemeneInfo', ["aAlgemeneInfo" => $aAlgemeneInfo]);
     }
     
     //Backend

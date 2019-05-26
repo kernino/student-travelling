@@ -37,4 +37,4 @@ Route::post('/admin/info/save', 'InfoController@createInfo');
 Route::get('/admin/vervoer', 'VervoerController@index')->name('vervoer_backend');
 Route::post('/admin/vervoer', 'VervoerController@create');
 
-Route::get('/admin/planning', 'PlanningController@index')->name('planning_backend');
+Route::get('/admin/planning', 'PlanningController@GetAllPlanningen');

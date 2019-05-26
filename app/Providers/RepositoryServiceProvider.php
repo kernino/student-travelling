@@ -20,6 +20,8 @@
     
     use App\Repositories\Contracts\AutoRepository;
     use App\Repositories\Eloquent\EloquentAuto;
+    use App\Repositories\Contracts\DayPlanningRepository;
+    use App\Repositories\Eloquent\EloquentDayPlanning;
     use App\Repositories\Contracts\PlanningRepository;
     use App\Repositories\Eloquent\EloquentPlanning;
 
@@ -30,9 +32,10 @@
             $this->app->singleton(InfoRepositoryBackend::class, EloquentInfoBackend::class);
             $this->app->singleton(AutoRepositoryBackend::class, EloquentAutoBackend::class);
             $this->app->singleton(HotelRepository::class, EloquentHotel::class);
-            $this->app->singleton(PlanningRepository::class, EloquentPlanning::class);
+            $this->app->singleton(DayPlanningRepository::class, EloquentDayPlanning::class);
             
             $this->app->singleton(VervoerRepositoryBackend::class, EloquentVervoerBackend::class);
             $this->app->singleton(AutoRepository::class, EloquentAuto::class);
+            $this->app->singleton(PlanningRepository::class, EloquentPlanning::class);
         }
     }

@@ -3,44 +3,17 @@
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\PlanningRepository;
 use App\Models\Plannings;
-use Illuminate\Support\Facades\DB;
 
 class EloquentPlanning implements PlanningRepository
 {
-    /**
-     *
-     * @var Planning 
-     */
-    private $planningModel;
     
-    /**
-     * EloquentPlanning constructor
-     * 
-     * @param Planning $model
-     */
+    private $model;
     
     public function __construct(Plannings $model) {
         $this->planningModel = $model;
+
     }
-    
-    public function GetTripPLanning($tripId) {
         
-        $aAllPlanningsPerTrip = DB::table("day_plannings_trips")->where("trip_id", "=", $tripId)->get();
-        
-        foreach($aAllPlanningsPerTrip as $aPlanningPerTrip)
-        {
-            $aDayPlannings = DB::table("days_plannings")->where("day_planning_id", "=", $aPlanningPerTrip->day_planning_id)->get();     
-            
-            foreach ($aDayPlannings as $aDayPlanning)
-            {
-                $aPlanning[$aDayPlanning->end_location][] = $aDayPlanning; 
-            }
-                  
-        }
-        
-        return $aPlanning;
-    }
-    
     public function GetPLanning() {
         $db = $this->db->pdo;
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -53,9 +26,10 @@ class EloquentPlanning implements PlanningRepository
         } catch (PDOException $oEx) {
             return $oEx->getMessage();
         }
+        
     }
     
-    public function GetTrip($sTrip) {
+    public function GetTrip(string $sTrip) {
         $db = $this->db->pdo;
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         try{
@@ -70,7 +44,8 @@ class EloquentPlanning implements PlanningRepository
         }
     }
     
+    //backend
     public function GetAllPlanningen() {
-        return $this->planningModel->get();
+        return $this->model->get();
     }
 }
