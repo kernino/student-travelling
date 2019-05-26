@@ -15,7 +15,7 @@
   <div class="card-body">
     <h5 class="card-title">{{$location}}</h5>
     @foreach ($dayPlannings as $day)
-    <a href="#" class="btn btn-primary">{{$day->date}}</a>
+    <a href="{{ route('DayPlanning',[ "id" => $day->day_planning_id]) }}" class="btn btn-primary">{{$day->date}}</a>
     @endforeach
   </div>
 </div>

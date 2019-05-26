@@ -21,8 +21,13 @@ class PlanningController extends Controller
 
 
     public function GetAllPlanningen(){
-        $listOfPlanningen = $this->planningBackend->GetAllPlanningen();
-        return view('partials.backend.planning', array('listOfPlanningen' => $listOfPlanningen));
+         $aPlanningen = $this->planningBackend->GetAllPlanningen();              
+        $aTripData = $this->planningBackend->GetTripData();
+        return view('partials.backend.planning', ["aPlanningen" => $aPlanningen, "aTripData" => $aTripData]);
+    }
+    
+    public function GetPlanning(){
+        
     }
     
     public function GetTripPlanning(Request $request){
@@ -34,6 +39,20 @@ class PlanningController extends Controller
             $aPlanning = $this->planningFrontend->GetTripPLanning($trip->trip_id);
             
             return view('partials.frontend.planning', ["aPlanning" => $aPlanning]);
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
+    }
+    
+    public function GetDayPlanning(Request $request, $id)
+    {
+        if ($request->session()->has('code')) {
+                      
+            $aDayPlanning = $this->planningFrontend->GetDayPlanning($id);
+            
+            return view('partials.frontend.planningDay', ["aPlanning" => $aDayPlanning]);
         }
         else
         {

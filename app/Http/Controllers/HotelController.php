@@ -22,10 +22,10 @@ class HotelController extends Controller
         if ($request->session()->has('code')) {
             
             $tripCode = $request->session()->get('code');
-            $trip = DB::table('trips')->where('travel_code', '=', $tripCode);  
+            $trip = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
             
-            $aRoomInfo = $this->hotel->GetAllTravellersPerRoom();
-            $aHotels = $this->hotel->GetAllHotelData();
+            $aRoomInfo = $this->hotel->GetAllTravellersPerRoom(1, $trip->trip_id);
+            $aHotels = $this->hotel->GetAllHotelData(); 
             
             return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => $aHotels]);
         }

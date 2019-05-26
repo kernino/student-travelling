@@ -33,4 +33,8 @@ class EloquentDayPlanning implements DayPlanningRepository
         
         return $aPlanning;
     }
+    
+    public function GetDayPlanning($dayPlanningId) {                   
+        return DB::table("days_plannings")->where("day_planning_id", "=", $dayPlanningId)->first();     
+    }
 }
