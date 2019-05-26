@@ -9,20 +9,21 @@ use App\Models\DaysPlannings;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+use App\Models\DaysPlannings;
+
+
 class PlanningController extends Controller
 {
     private $planningBackend;
     private $planningFrontend;
 
 
-    
-
     public function __construct(PlanningRepository $planningBackend, ayPlanningRepository $planningFrontend) {
         $this->planningBackend = $planningBackend;
         $this->planningFrontend = $planningFrontend;
     } 
 
-   
+
     public function GetAllPlanningen(){
         $listOfPlanningen = $this->planningBackend->GetAllPlanningen();
         return view('partials.backend.planning', array('listOfPlanningen' => $listOfPlanningen));
@@ -44,3 +45,7 @@ class PlanningController extends Controller
         }
     }
 }   
+
+    
+
+
