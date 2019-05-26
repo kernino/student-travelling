@@ -21,11 +21,10 @@
       </div>
       <form name="modalForm" action="{{ route("accepted") }}">
         <div class="modal-footer">
-            <div class="form-check">
-		<input type="checkbox" class="form-check-input" id="exampleCheck1">
-		<label class="form-check-label" for="modalForm">Gelezen en goedgekeurd</label>
-            </div>
-            <button type="submit" class="btn btn-secondary">Sluiten</button>
+            <div class="checkbox"> 
+               <label><input class="check_list" id="check" type="checkbox" onclick="check()"> Gelezen en goedgekeurd</label>
+            </div>		
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="sluitKnop" disabled="">Sluiten</button>
         </div>
       </form>
     </div>
@@ -45,6 +44,16 @@
             backdrop: 'static',
             keyboard: false
         });
-    });
+    
+    
+    function check() {
+    var checkbox = document.getElementById("check")
+        if(checkbox.checked = true){
+          $('#sluitKnop').prop('disabled', false);
+
+        } else {
+          $('#sluitKnop').prop('enabled', true);
+        } 
+    }
 </script>
 @endsection
