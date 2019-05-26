@@ -26,7 +26,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">dag {{ $daysplannings->day_planning_id }} - {{$daysplannings->name}}</h5>
                                     <p class="card-text">{{$daysplannings->date}} <br> {{$daysplannings->end_location}}</p>
-                                    <a href="#" class="btn btn-primary">Wijzig planning</a>
+                                    <a href="{{ route('planningWijzig',[ "id" => $daysplannings->day_planning_id]) }}" class="btn btn-primary">Wijzig planning</a>
                                 </div>
                             </div>
                         </td>
@@ -47,7 +47,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">dag {{ $daysplannings->day_planning_id }} - {{$daysplannings->name}}</h5>
                                     <p class="card-text">{{$daysplannings->date}} <br> {{$daysplannings->end_location}}</p>
-                                    <a href="#" class="btn btn-primary">Wijzig planning</a>
+                                    <a href="{{ route('planningWijzig',[ "id" => $daysplannings->day_planning_id]) }}" class="btn btn-primary">Wijzig planning</a>
                                 </div>
                             </div>
                         </td>

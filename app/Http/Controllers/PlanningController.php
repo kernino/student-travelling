@@ -21,13 +21,14 @@ class PlanningController extends Controller
 
 
     public function GetAllPlanningen(){
-         $aPlanningen = $this->planningBackend->GetAllPlanningen();              
+        $aPlanningen = $this->planningBackend->GetAllPlanningen();              
         $aTripData = $this->planningBackend->GetTripData();
         return view('partials.backend.planning', ["aPlanningen" => $aPlanningen, "aTripData" => $aTripData]);
     }
     
     public function GetPlanning(){
-        
+        //$aPlanning = $this->planningBackend->GetPLanning($id);
+        return view('partials.backend.PlanningWijzig');
     }
     
     public function GetTripPlanning(Request $request){

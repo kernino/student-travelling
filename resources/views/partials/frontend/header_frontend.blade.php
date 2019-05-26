@@ -25,5 +25,21 @@
         <a class="nav-link" href="{{ route('contact') }}" tabindex="-1" aria-disabled="true">Contact</a>
       </li>
     </ul>
+      <ul class="navbar-nav ml-auto">
+          @if(isset($aEmergencyNumbers))
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Noodnummers
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            @foreach($aEmergencyNumbers as $aEmergencyNumber)
+            @if(isset($aEmergencyNumber->first_name))
+            <p class="dropdown-item">{{ $aEmergencyNumber->first_name }} {{ $aEmergencyNumber->last_name }} {{ $aEmergencyNumber->phone }}</a>
+            @endif
+            @endforeach
+            @endif
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>

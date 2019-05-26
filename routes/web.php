@@ -39,3 +39,4 @@ Route::get('/admin/vervoer', 'VervoerController@index')->name('vervoer_backend')
 Route::post('/admin/vervoer', 'VervoerController@create');
 
 Route::get('/admin/planning', 'PlanningController@GetAllPlanningen');
+Route::get('/admin/planningWijzig/{id}', 'PlanningController@GetPlanning')->name("planningWijzig");
