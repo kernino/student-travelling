@@ -23,7 +23,7 @@
     <ol>
         <li><a href="{{ url('/admin/planning') }}">Planning</a></li>
         <li><a href="{{ url('/admin/info') }}">Algemene Info</a></li> 
-        <li><a href="#">Hotels</a></li> 
+        <li><a href="{{ url('/admin/hotel') }}">Hotels</a></li> 
         <li><a href="{{ url('/admin/vervoer') }}">Vervoer</a></li>
         <li><a href="#">Contacten</a></li>
     </ol>
