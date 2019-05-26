@@ -9,12 +9,7 @@
         
         <h3>Algemene info:</h3>
         <textarea cols="80" rows="12" id="algemene_info_content" name="info_content"> 
-        </textarea>
-        <br>
-        <h3>Vlucht info:</h3>
-        <textarea cols="80" rows="12" id="vlucht_info_content" name="flight_content"> 
-        </textarea>
-        
+        </textarea>        
         <input type="submit" value="Opslaan" name="save"/>
         <input type="button" value="Annuleren" onclick="history.go(0)"/>
         
