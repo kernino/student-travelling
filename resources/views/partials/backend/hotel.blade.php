@@ -3,7 +3,7 @@
 @section('container')
     <h1>Vervoer</h1>
     @foreach ($aHotels as $hotel)
-    <button type="button" onclick="changeDesc(\"{{ $hotel->hotel_name }}\")" class="btn btn-primary">{{ $hotel->hotel_name }}</button>
+    <button type="button" onclick='changeDesc({{$hotel->hotel_name}})' class="btn btn-primary">{{ $hotel->hotel_name }}</button>
     @endforeach
     <form method="POST" class="htmlEditor">
     <div>
@@ -21,12 +21,12 @@
 </form>
 @endsection
 @section('page_specific_scripts')
-    <script>CKEDITOR.replace( 'hotel_info' );</script>
+    <script>CKEDITOR.replace('info_content');</script>
     <script>
-        function changeDesc(hotel)
+        function changeDesc($hotel)
         {
            var editor = document.getElementById("hotel_info");
-           editor.value = hotel;
+           editor.value = $name;
        }
     </script>
 @endsection

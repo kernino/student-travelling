@@ -34,4 +34,10 @@ class HotelController extends Controller
             return redirect()->route('login');
         }
     }
+    
+    public function hotelBackEnd()
+    {
+            $aHotels = $this->hotel->GetAllHotelData();
+            return view('partials.backend.hotel', ["aHotels" => $aHotels]);
+    }
 }
