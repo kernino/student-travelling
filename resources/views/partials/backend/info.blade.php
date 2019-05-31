@@ -1,23 +1,25 @@
 @extends('partials.backend.index')
 
 @section('container')
-<h1>Info</h1>
+<h1>Algemene Info</h1>
 
 <form action="{{ Request::url() }}/save" method="POST" class="htmlEditor">
     <div>
-        {{ csrf_field() }}
+        @csrf
         
-        <h3>Algemene info:</h3>
-        <textarea cols="80" rows="12" id="algemene_info_content" name="info_content"> 
-        </textarea>        
-        <input type="submit" value="Opslaan" name="save"/>
-        <input type="button" value="Annuleren" onclick="history.go(0)"/>
+        <input type="hidden" value="{{ $info_content->info_id ?? "" }}" name="info_id" />
         
-        @include('layouts.error')
+        <textarea cols="80" rows="12" id="info_content" name="info_content" required>
+            {{ $info_content->content ?? "" }}
+        </textarea>
+        
+        <input type="submit" value="Opslaan" name="action"/>
+        <input type="submit" value="Annuleren" name="action"/>
     </div>
 </form>
+@include('layouts.error')
 @endsection
 
 @section('page_specific_scripts')
-    <script>CKEDITOR.replace( 'algemene_info_content' );</script>
+    <script>CKEDITOR.replace( 'info_content' );</script>
 @endsection
