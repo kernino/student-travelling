@@ -1,6 +1,6 @@
 <?php
+
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\InfoRepositoryBackend;
 
@@ -13,35 +13,30 @@ class InfoController extends Controller
     }
     
     public function index() {
-        return view('partials.backend.info');
+        $info_content = $this->Info->getAlgemeneInfo();
+        //return $info_content;
+       
+        return view('partials.backend.info', array("info_content" => $info_content[0]));
     }
     
     public function createInfo() {
-        // valideer het request, het transport_content veld moet ingevuld zijn
+        // valideer het request, het info_content veld moet ingevuld zijn
         $this->validate(request(), [
             'info_content' => 'required',
+            'info_id' => 'required'
         ]);
-        
-        
-        
-        if(request()->save == "Opslaan") {            
-            $infoContent["type"] = "general_info";
-            $infoContent["info"] = request()->info_content;
-            
-            return $this->Info->saveInfo($infoContent);
-            
-            
-            /*if(request()->info_type == "algemeneInfo") {
-                $infoContent["type"] = "general_info";
-                $infoContent["info"] = request()->info_content;
-                $infoContent["flight"] = request()->flight_content;
-                //return $this->Info->saveInfo($infoContent);
-                return request();
+                
+        if(request()->action == "Opslaan") {
+            if(request()->info_id != "") {
+                $infoContent["content"] = request()->info_content;
+                $infoContent["id"] = request()->info_id;
+                if($this->info->updateAlgemeneInfo($infoContent)) {
+                    return redirect()->route('info_backend');
+                }
+                return  redirect()->route('info_backend')->withErrors(["Opslaan mislukt" => "Kan de aanpassing niet opslaan"]);
             }
-            return redirect()->route('info_backend');*/
-            
-        } else {
-            return redirect()->route('info_backend');
         }
+        
+        return redirect()->route('info_backend');
     }
 }
