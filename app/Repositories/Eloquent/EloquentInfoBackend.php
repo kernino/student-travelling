@@ -12,30 +12,12 @@ class EloquentInfoBackend implements InfoRepositoryBackend
         $this->model = $model;
     }
 
-    public function getAlgemeneInfo($sContent) {
-        $db = $this->db->pdo;
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        try{
-            $sSqlQuery = "SELECT * FROM infos WHERE content =: sContent";
-            $oStmt = $db->prepare($sSqlQuery);
-            $oStmt->bindParam(':sContent', $sContent);
-            $oStmt->execute();
-            $aAuto = $oStmt->fetch(PDO::FETCH_ASSOC);
-            return $aAlgemeneInfo;
-        } catch (PDOException $oEx) {
-            return $oEx->getMessage();
-        }
+    public function getAlgemeneInfo() {
+        return \Illuminate\Support\Facades\DB::table('infos')->select("info_id", "content")->where(["info_id" => 1])->get();
     }
 
-    public function saveInfo(array $infoContent) {
-        if( ($this->model->create(["general_info" => $infoContent["info"], "flight_info" => $infoContent["flight"]])) )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+    public function updateAlgemeneInfo(array $infoContent) {
+        return \Illuminate\Support\Facades\DB::table('infos')->where(["info_id" => $infoContent["id"]])->update(["content" => $infoContent["content"]]);
     }
 
 }
