@@ -43,6 +43,7 @@ h1.home, p.home{
 
 h1.planning{
     text-align: center;
+    color: #3490dc;
 }
 
 h1.planningDay, h2.planningDay{
@@ -51,10 +52,50 @@ h1.planningDay, h2.planningDay{
 }
 
 div.planningDay{
-    margin-left: 20px;
+    margin-left: 1%;
 }
 
 h1.hotel{
     text-align: center;
+    color: #3490dc;
+}
+
+h2.hotel, h3.hotel{
+    margin-left: 1%;
+    color: #3490dc;
+}
+
+p.hotel{
+    margin-left: 1%;
+}
+
+input#myInput{
+    border-color: #3490dc;
+    border-radius: 10px;
+    margin-left: 1%;
+}
+
+button#hotelbtn{
+    margin-left: 1%;
+}
+
+h1.vervoer{
+    text-align: center;
+    color: #3490dc;
+}
+
+h2.vervoer, h3.vervoer{
+    margin-left: 1%;
+    color: #3490dc;
+}
+
+h1.contact{
+    
+    text-align: center;
+    color: #3490dc;
+}
+
+h2.contact{
+    margin-left: 1%;
     color: #3490dc;
 }

@@ -9,9 +9,9 @@
 @endsection
 
 @section('content')
-<h1>Telefoon nummers</h1>
-    <h2>Begeleiders</h2>
-        <table>
+<h1 class="contact">Telefoon nummers</h1>
+    <h2 class="contact">Begeleiders</h2>
+        <table style="width:80%; margin-left: 10%; color: #3490dc;">
         @foreach ($aContactData['mentors'] as $aBegeleider)
         <tr>
             <td>{{ $aBegeleider->first_name }} {{ $aBegeleider->last_name }}<br>
@@ -22,9 +22,9 @@
     
     <hr>
     
-    <h2>Reizigers</h2>
+    <h2 class="contact">Reizigers</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <table style="width:100%" id="myTable">
+    <table style="width:80%; margin-left: 10%; color: #3490dc;" id="myTable">
         @foreach ($aContactData['students'] as $aStudents)
         <tr>
             <td>

@@ -9,16 +9,16 @@
 @endsection
 
 @section('content')
-<h1>Vervoer Informatie</h1>
-<h2>Vliegtuig</h2>
+<h1 class="vervoer">Vervoer Informatie</h1>
+<h2 class="vervoer">Vliegtuig</h2>
 <div></div>
 <!--<h3>Algemene info:</h3>
 <p></p>-->
 <hr>
-<h2>Auto</h2>
-<h3>Auto verdeling:</h3>
+<h2 class="vervoer">Auto</h2>
+<h3 class="vervoer">Auto verdeling:</h3>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-<table style="width:100%;" id="myTable" >
+<table style="width:80%; margin-left: 10%; color: #3490dc;" id="myTable" >
     @foreach ($aCars as $iCarId=>$aCar)
     <tr>
         <th>Chauffeurs auto {{ $iCarId }}</th>

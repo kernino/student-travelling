@@ -11,7 +11,7 @@
 @section('content')
 <h1 class="hotel">Hotel Info</h1>
             @foreach ($aHotels as $hotel)
-            <button type="button" class="btn btn-primary">{{ $hotel->hotel_name }}</button>
+            <button type="button" id="hotelbtn" class="btn btn-primary">{{ $hotel->hotel_name }}</button>
             @endforeach
     <h3 class="hotel">Algemene info:</h3>
     <p class="hotel">{{ $aHotels[0]->hotel_information }}</p>
@@ -20,12 +20,12 @@
     <hr>
     <h2 class="hotel">Kamer indeling</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <table style="width:100%;" id="myTable">
+    <table style="width:80%; margin-left: 10%" id="myTable">
         @foreach ($aRoomInfo as $iRoomId => $aTravellers)
         <tr>
-            <th>Kamer {{ $iRoomId }}</th>
+            <th style="color: #3490dc;">Kamer {{ $iRoomId }}</th>
             @foreach ($aTravellers as $aTraveller)
-            <td>
+            <td style="color: #3490dc;">
                 {{ $aTraveller->first_name }} {{ $aTraveller->last_name }}
                 <br>
                 @if(isset($aTraveller->major_name))
