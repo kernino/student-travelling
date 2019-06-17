@@ -2,13 +2,13 @@
 
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\InfoRepositoryBackend;
-use App\Models\Info;
+use App\Models\Infos;
 
 class EloquentInfoBackend implements InfoRepositoryBackend
 {
     private $model;
     
-    public function __construct(Info $model) {
+    public function __construct(Infos $model) {
         $this->model = $model;
     }
 

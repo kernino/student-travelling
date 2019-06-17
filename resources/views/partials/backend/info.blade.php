@@ -2,7 +2,6 @@
 
 @section('container')
 <h1>Algemene Info</h1>
-
 <form method="POST" class="htmlEditor" action="/admin/info">
     <div>
         @csrf
