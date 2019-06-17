@@ -9,4 +9,10 @@ interface PlanningRepository
     public function GetAllPlanningen();
     
     public function GetTripData();
+    
+    public function UpdatePlanning(array $aPlanningContent);
+    
+    public function CreatePlanning(array $aPlanningContent);
+    
+    public function DeletePlanning($id);
 }

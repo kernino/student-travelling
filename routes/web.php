@@ -38,8 +38,10 @@ Route::post('/admin/info/save', 'InfoController@createInfo');
 Route::get('/admin/vervoer', 'VervoerController@index')->name('vervoer_backend');
 Route::post('/admin/vervoer', 'VervoerController@create');
 
-Route::get('/admin/planning', 'PlanningController@GetAllPlanningen');
-Route::get('/admin/planningWijzig/{id}', 'PlanningController@GetPlanning')->name("planningWijzig");
+Route::get('/admin/planning', 'PlanningController@GetAllPlanningen')->name("planningen");
+Route::get('/admin/planningWijzig/{id}/{dagnr}', 'PlanningController@GetPlanning')->name("planningWijzig");
+Route::post('/admin/planningWijzig/{id}', 'PlanningController@CUD');
+Route::post('/admin/planning', 'PlanningController@CUD');
 
 Route::get('/admin/hotel', 'HotelController@hotelBackEnd')->name('hotel_backend');
 

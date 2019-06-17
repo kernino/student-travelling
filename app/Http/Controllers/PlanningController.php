@@ -20,17 +20,70 @@ class PlanningController extends Controller
     } 
 
 
+    //backend
     public function GetAllPlanningen(){
         $aPlanningen = $this->planningBackend->GetAllPlanningen();              
         $aTripData = $this->planningBackend->GetTripData();
         return view('partials.backend.planning', ["aPlanningen" => $aPlanningen, "aTripData" => $aTripData]);
     }
     
-    public function GetPlanning(){
-        //$aPlanning = $this->planningBackend->GetPLanning($id);
-        return view('partials.backend.PlanningWijzig');
+    public function GetPlanning($id, $dagnr){
+        if($id != 0){
+            $aPlanning = $this->planningBackend->GetPLanning($id); 
+            $aDay = $dagnr;
+            
+        }
+        else{
+            $aKeys = array ('day_planning_id', 'name', 'date', 'end_location', 'highlight', 'description', 'created_at', 'updated_at');
+            $aData = array('', '','' ,'', '', '', '','');
+            $aPlanning = (object)array_combine($aKeys, $aData);
+            $aDay = "*";
+        }
+        return view('partials.backend.PlanningWijzig', ["aPlanning" => $aPlanning, "aDay" => $aDay]);
     }
     
+    public function CUD() {      
+        if(request()->action == "Opslaan") {
+            $aPlanningContent["planningId"] = request()->planningId;
+            $aPlanningContent["planningName"] = request()->planningName;
+            $aPlanningContent["planningLocation"] = request()->planningLocation;
+            $aPlanningContent["planningDate"] = request()->planningDate;
+            $aPlanningContent["planningHighlight"] = request()->planningHighlight;
+            $aPlanningContent["planning_content"] = request()->planning_content;
+           
+            if($this->planningBackend->UpdatePlanning($aPlanningContent)) {
+                return redirect()->route('planningen');
+            }
+            return  redirect()->route('planningen')->withErrors(["Opslaan mislukt" => "Kan de aanpassing niet opslaan"]);          
+        }
+        if(request()->action == "Toevoegen") {
+            //$aPlanningContent["planningId"] = request()->planningId;
+            $aPlanningContent["planningName"] = request()->planningName;
+            $aPlanningContent["planningLocation"] = request()->planningLocation;
+            $aPlanningContent["planningDate"] = request()->planningDate;
+            $aPlanningContent["planningHighlight"] = request()->planningHighlight;
+            $aPlanningContent["planning_content"] = request()->planning_content;
+           
+            if($this->planningBackend->CreatePlanning($aPlanningContent)) {
+                return redirect()->route('planningen');
+            }
+            return  redirect()->route('planningen')->withErrors(["Toevoegen mislukt" => "Kan de planning niet toevoegen"]);          
+        }
+        if(request()->action == "Verwijderen") {
+            $id = request()->planningId;
+           
+            if($this->planningBackend->DeletePlanning($id)) {
+                return redirect()->route('planningen');
+            }
+            return  redirect()->route('planningen')->withErrors(["verwijderen mislukt" => "Kan de verwijdering niet voldoen"]);          
+        }
+        
+        return redirect()->route('planningen');
+    }
+    
+
+    
+    //frontend
     public function GetTripPlanning(Request $request){
          if ($request->session()->has('code')) {
             
