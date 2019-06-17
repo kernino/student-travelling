@@ -23,9 +23,9 @@
     <table style="width:80%; margin-left: 10%" id="myTable">
         @foreach ($aRoomInfo as $iRoomId => $aTravellers)
         <tr>
-            <th style="color: #3490dc;">Kamer {{ $iRoomId }}</th>
+            <th style="color: #3490dc; border: 2px solid #3490dc; text-align: center;">Kamer {{ $iRoomId }}</th>
             @foreach ($aTravellers as $aTraveller)
-            <td style="color: #3490dc;">
+            <td style="color: #3490dc; border: 2px solid #3490dc; text-align: center;">
                 {{ $aTraveller->first_name }} {{ $aTraveller->last_name }}
                 <br>
                 @if(isset($aTraveller->major_name))

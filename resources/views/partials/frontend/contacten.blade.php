@@ -11,20 +11,22 @@
 @section('content')
 <h1 class="contact">Telefoon nummers</h1>
     <h2 class="contact">Begeleiders</h2>
-        <table style="width:80%; margin-left: 10%; color: #3490dc;">
-        @foreach ($aContactData['mentors'] as $aBegeleider)
-        <tr>
-            <td>{{ $aBegeleider->first_name }} {{ $aBegeleider->last_name }}<br>
-            {{ $aBegeleider->phone }}</td>
-        </tr>
-        @endforeach
+        <table style="width:80%; margin-left: 10%; color: #3490dc; margin-top: 2%; margin-bottom: 2%;">
+            <tr>
+            @foreach ($aContactData['mentors'] as $aBegeleider)
+
+                <td style="border: 2px solid #3490dc; text-align: center;">{{ $aBegeleider->first_name }} {{ $aBegeleider->last_name }}<br>
+                {{ $aBegeleider->phone }}</td>
+
+            @endforeach
+            </tr>
     </table>
     
     <hr>
     
     <h2 class="contact">Reizigers</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <table style="width:80%; margin-left: 10%; color: #3490dc;" id="myTable">
+    <table style="width:80%; margin-left: 10%; color: #3490dc;" id="myTable"><tr>
         @foreach ($aContactData['students'] as $aStudents)
         <tr>
             <td>
