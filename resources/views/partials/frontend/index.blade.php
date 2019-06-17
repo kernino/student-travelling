@@ -25,15 +25,15 @@
 		<input type="checkbox" class="form-check-input" id="check">
 		<label class="form-check-label " for="modalForm">Gelezen en goedgekeurd</label>
             </div>
-            <button type="submit"  id="sluitKnop" disabled class="btn btn-secondary disabled">Sluiten</button>
+            <button type="submit"  id="sluitKnop" disabled class="btn btn-primary disabled">Sluiten</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-<h1>{{ $aHomeData->destination }}</h1>
-<p>{{ $aHomeData->start_date }} - {{ $aHomeData->end_date }}</p>
+<h1 class="home">{{ $aHomeData->destination }}</h1>
+<p class="home">{{ $aHomeData->start_date }} - {{ $aHomeData->end_date }}</p>
 
 
 @endsection

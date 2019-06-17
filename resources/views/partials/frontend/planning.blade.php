@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<h1>Planning</h1>
+<h1 class="planning">Planning</h1>
 @foreach ($aPlanning as $location => $dayPlannings)
 <div class="card mx-auto" style="width: 40rem;">
   <div class="card-body">

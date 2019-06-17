@@ -9,16 +9,16 @@
 @endsection
 
 @section('content')
-    <h1>Hotel Info</h1>
+<h1 class="hotel">Hotel Info</h1>
             @foreach ($aHotels as $hotel)
             <button type="button" class="btn btn-primary">{{ $hotel->hotel_name }}</button>
             @endforeach
-    <h3>Algemene info:</h3>
-    <p>{{ $aHotels[0]->hotel_information }}</p>
-    <h3>Adres:</h3>
-    <p>{{ $aHotels[0]->address }}</p>
+    <h3 class="hotel">Algemene info:</h3>
+    <p class="hotel">{{ $aHotels[0]->hotel_information }}</p>
+    <h3 class="hotel">Adres:</h3>
+    <p class="hotel">{{ $aHotels[0]->address }}</p>
     <hr>
-    <h2>Kamer indeling</h2>
+    <h2 class="hotel">Kamer indeling</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
     <table style="width:100%;" id="myTable">
         @foreach ($aRoomInfo as $iRoomId => $aTravellers)
