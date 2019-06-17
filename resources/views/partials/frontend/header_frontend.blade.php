@@ -6,35 +6,35 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ route('home') }}" style="color: white;">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
           Info
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ route('algemeen') }}">Algemene Info</a>
-          <a class="dropdown-item" href="{{ route('hotel') }}">Hotel Info</a>
-          <a class="dropdown-item" href="{{ route('vervoer') }}">Vervoer Info</a>
+          <a class="dropdown-item" href="{{ route('algemeen') }}" style="color: #3490dc;">Algemene Info</a>
+          <a class="dropdown-item" href="{{ route('hotel') }}" style="color: #3490dc;">Hotel Info</a>
+          <a class="dropdown-item" href="{{ route('vervoer') }}" style="color: #3490dc;">Vervoer Info</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('planning') }}" tabindex="-1" aria-disabled="true">Planning</a>
+        <a class="nav-link" href="{{ route('planning') }}" tabindex="-1" aria-disabled="true" style="color: white;">Planning</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('contact') }}" tabindex="-1" aria-disabled="true">Contact</a>
+        <a class="nav-link" href="{{ route('contact') }}" tabindex="-1" aria-disabled="true" style="color: white;">Contact</a>
       </li>
     </ul>
       <ul class="navbar-nav ml-auto">
           @if(isset($aEmergencyNumbers))
       <li class="nav-item dropdown ">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
           Noodnummers
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             @foreach($aEmergencyNumbers as $aEmergencyNumber)
             @if(isset($aEmergencyNumber->first_name))
-            <p class="dropdown-item">{{ $aEmergencyNumber->first_name }} {{ $aEmergencyNumber->last_name }} {{ $aEmergencyNumber->phone }}</a>
+            <p class="dropdown-item" style="color: #3490dc;">{{ $aEmergencyNumber->first_name }} {{ $aEmergencyNumber->last_name }} {{ $aEmergencyNumber->phone }}</p>
             @endif
             @endforeach
             @endif

@@ -77,6 +77,7 @@ input#myInput{
 
 button#hotelbtn{
     margin-left: 1%;
+    margin-bottom: 1%;
 }
 
 h1.vervoer{
@@ -98,4 +99,8 @@ h1.contact{
 h2.contact{
     margin-left: 1%;
     color: #3490dc;
+}
+
+div#navbarSupportedContent{
+    background-color: #3490dc;
 }
