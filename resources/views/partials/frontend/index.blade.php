@@ -52,10 +52,10 @@
     </div>
   </div>
 </div>
-@if($aHomeData != null)
-    <h1 class="home">{{ $aHomeData->destination }}</h1>
-    <p class="home">{{ $aHomeData->start_date }} - {{ $aHomeData->end_date }}</p>
-@endif
+
+<h1 class="home">{{ $aHomeData->destination }}</h1>
+<p class="home">{{ $aHomeData->start_date }} - {{ $aHomeData->end_date }}</p>
+<img class="home" src="/images/wereldmap2.png" alt="credits to vectorstock" >
 @endsection
 
 @section('scripts')

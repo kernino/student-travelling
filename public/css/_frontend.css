@@ -40,6 +40,12 @@ h1.home, p.home{
     margin: 20px;
     color: #3490dc;
 }
+img.home{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
 h1.planning{
     text-align: center;
