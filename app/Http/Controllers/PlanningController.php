@@ -112,10 +112,10 @@ class PlanningController extends Controller
             
             $tripCode = $request->session()->get('code');
             $trip = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
-            
+            $aEmergencyNumbers = $this->getEmergencyNumbers($trip->trip_id);
             $aPlanning = $this->planningFrontend->GetTripPLanning($trip->trip_id);
             
-            return view('partials.frontend.planning', ["aPlanning" => $aPlanning]);
+            return view('partials.frontend.planning', ["aPlanning" => $aPlanning, "aEmergencyNumbers" => $aEmergencyNumbers]);
         }
         else
         {
@@ -126,15 +126,33 @@ class PlanningController extends Controller
     public function GetDayPlanning(Request $request, $id)
     {
         if ($request->session()->has('code')) {
-                      
+            $tripCode = $request->session()->get('code');
+            $trip = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
             $aDayPlanning = $this->planningFrontend->GetDayPlanning($id);
-            
-            return view('partials.frontend.planningDay', ["aPlanning" => $aDayPlanning]);
+            $aEmergencyNumbers = $this->getEmergencyNumbers($trip->trip_id);
+            return view('partials.frontend.planningDay', ["aPlanning" => $aDayPlanning, "aEmergencyNumbers" => $aEmergencyNumbers]);
         }
         else
         {
             return redirect()->route('login');
         }
+    }
+    
+    private function getEmergencyNumbers($sTripId){
+        
+        $aTravellers = DB::table('travellers_trips')->where('trip_id', '=', $sTripId)->get();  
+
+        foreach ($aTravellers as $aTraveller)
+        {
+            $aEmergencyNumbers[] = DB::table('travellers')->where('traveller_id', '=', $aTraveller->traveller_id)->whereNull('major_name')->first();
+        }             
+
+        if (isset($aEmergencyNumbers)){
+            return $aEmergencyNumbers;
+        }
+        else{
+            return null;
+        } 
     }
 }   
 

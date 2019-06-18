@@ -13,10 +13,6 @@ class EloquentHotel implements HotelRepository
         $this->hotelModel = $model;
     }
     
-    public function GetTravellersByName($sName){
-        $travellers = DB::table('travellers')->get();
-        return $travellers;
-    }
     
     public function GetAllTravellersPerRoom($hotel_id, $trip_id){
         

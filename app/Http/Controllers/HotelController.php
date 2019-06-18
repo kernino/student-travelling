@@ -42,20 +42,21 @@ class HotelController extends Controller
             if(isset($trip)){
                 $aRoomInfo = $this->hotel->GetAllTravellersPerRoom($iHotel+1, $trip->trip_id);
                 $aHotels = $this->hotel->GetAllHotelData($trip->trip_id); 
+                $aEmergencyNumbers = $this->getEmergencyNumbers($trip->trip_id);
                 
                 if (isset($aRoomInfo) && isset($aHotels)){
-                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => $aHotels, "iHotel" => $iHotel]);
+                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => $aHotels, "iHotel" => $iHotel, "aEmergencyNumbers" => $aEmergencyNumbers]);
                 }
                 else if (isset($aHotels)){
-                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => $aHotels, "iHotel" => $iHotel]);
+                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => $aHotels, "iHotel" => $iHotel, "aEmergencyNumbers" => $aEmergencyNumbers]);
                 }
                 else{
-                   return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1]);  
+                   return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1, "aEmergencyNumbers" => $aEmergencyNumbers]);  
                 }           
             }
             else
             {
-                return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1]);                
+                return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1, "aEmergencyNumbers" => $aEmergencyNumbers]);                
             }
             
         }
@@ -74,5 +75,22 @@ class HotelController extends Controller
             $aHotels = $this->hotel->GetAllHotelData();
             return view('partials.backend.hotel', ["aHotels" => $aHotels]);
         }
+    }
+    
+    private function getEmergencyNumbers($sTripId){
+        
+        $aTravellers = DB::table('travellers_trips')->where('trip_id', '=', $sTripId)->get();  
+
+        foreach ($aTravellers as $aTraveller)
+        {
+            $aEmergencyNumbers[] = DB::table('travellers')->where('traveller_id', '=', $aTraveller->traveller_id)->whereNull('major_name')->first();
+        }             
+
+        if (isset($aEmergencyNumbers)){
+            return $aEmergencyNumbers;
+        }
+        else{
+            return null;
+        } 
     }
 }

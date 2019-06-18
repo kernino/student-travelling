@@ -15,6 +15,8 @@ class ContactController extends Controller
         
             $aTrip = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
             
+            $aEmergencyNumbers = $this->getEmergencyNumbers($aTrip->trip_id);
+            
             $aTravellersPerTrip = DB::table('travellers_trips')->where('trip_id', '=', $aTrip->trip_id)->get();
             
             foreach ($aTravellersPerTrip as $aTravellerPerTrip)
@@ -32,15 +34,32 @@ class ContactController extends Controller
             }   
             
             if(isset($aTravellersInTrip)){
-                return view('partials.frontend.contacten', ["aContactData" => $aTravellersInTrip]);               
+                return view('partials.frontend.contacten', ["aContactData" => $aTravellersInTrip, "aEmergencyNumbers" => $aEmergencyNumbers]);               
             }
             else{
-                return view('partials.frontend.contacten', ["aContactData" => null]);
+                return view('partials.frontend.contacten', ["aContactData" => null, "aEmergencyNumbers" => $aEmergencyNumbers]);
             }
         }
         else
         {
             return view('partials.frontend.inlogScherm', ["bError" => false]);
         }
+    }
+    
+    private function getEmergencyNumbers($sTripId){
+        
+        $aTravellers = DB::table('travellers_trips')->where('trip_id', '=', $sTripId)->get();  
+
+        foreach ($aTravellers as $aTraveller)
+        {
+            $aEmergencyNumbers[] = DB::table('travellers')->where('traveller_id', '=', $aTraveller->traveller_id)->whereNull('major_name')->first();
+        }             
+
+        if (isset($aEmergencyNumbers)){
+            return $aEmergencyNumbers;
+        }
+        else{
+            return null;
+        } 
     }
 }

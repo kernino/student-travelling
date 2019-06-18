@@ -80,9 +80,7 @@ class HomeController extends Controller
                     }
                     else{
                         return view('partials.frontend.index', ["aHomeData" => $aHomeData, "sAccepted" => "", "aEmergencyNumbers" => null]);
-                    }  
-
-                    
+                    }             
             }
         }
         else
