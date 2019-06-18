@@ -10,9 +10,17 @@
 
 @section('content')
 <div id="content_container">
-    @yield('container')
-</div>
     
+    
+    @if ( Route::current()->getName() == 'home_backend')   
+        <p class="welkom">Welkom bij backend!</p>
+        <hr>
+    @else
+        @yield('container')
+    @endif    
+</div>
+ 
+@include('layouts.error')
 @endsection
 
 @section('scripts')

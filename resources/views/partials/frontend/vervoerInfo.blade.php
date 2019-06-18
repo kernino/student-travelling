@@ -13,7 +13,7 @@
 <h2 class="vervoer">Extra informatie</h2>
 
 @if(isset($sTransportationInfo))
-<div>{!! $sTransportationInfo !!}</div>
+<div style="margin-left: 1%;">{!! $sTransportationInfo !!}</div>
 @else
 <p class="vervoer">No transportation info found for this trip</p>
 @endif
@@ -42,9 +42,7 @@
     </tr>
     @endforeach
     @else
-        <tr>
-            <th style="border: 2px solid #3490dc; text-align: center;">No cars found for this trip</th>
-        </tr>
+        <p style="border: 2px solid #3490dc; text-align: center; color: #3490dc; margin-top: 3%; width: 20%; margin-left: 40%;">No cars found for this trip</p>
     @endif
 </table>
 <script>

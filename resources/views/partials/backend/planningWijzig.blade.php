@@ -3,8 +3,8 @@
 @section('container')
 <h1>Dag {{$aDay}}: {{$aPlanning->name}}</h1>
 
-<form method="POST" action="/admin/planning"  class="htmlEditor" style="margin-bottom: 20px;">
-    <div>
+<form method="POST" action="/admin/planning"  class="htmlEditor wijzigPlanning" style="margin-bottom: 20px;">
+    <div >
         {{ csrf_field() }}
         
         <input type="hidden" value="{{$aPlanning->day_planning_id}}" name="planningId" />
@@ -51,5 +51,5 @@
 @endsection
 
 @section('page_specific_scripts')
-    <script>CKEDITOR.replace( 'planning_content' );</script>
+    <script>CKEDITOR.replace( 'planning_content', {height: 400} );</script>
 @endsection

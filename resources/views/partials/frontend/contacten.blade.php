@@ -19,7 +19,8 @@
                         {{ $aBegeleider->phone }}</td>
                     @endforeach
                 @else
-                    <td style="border: 2px solid #3490dc; text-align: center;">No travellers found for this trip</td>
+            </tr>
+                    <p style="border: 2px solid #3490dc; text-align: center; color: #3490dc; margin-top: 3%; width: 20%; margin-left: 40%;">No travellers found for this trip</p>
                 @endif
             </tr>
     </table>
@@ -27,13 +28,13 @@
     <hr>
     
     <h2 class="contact">Reizigers</h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name" style="margin-bottom: 3%;">
     <table style="width:80%; margin-left: 10%; color: #3490dc;" id="myTable"><tr>
         @if(isset($aContactData))
         @foreach ($aContactData['students'] as $aStudents)
         <tr>
-            <td>
-                {{ $aStudents->first_name }} {{ $aStudents->last_name }}
+            <td style="border: 2px solid #3490dc; text-align: center;">
+                {{ $aStudents->first_name }} {{ $aStudents->last_name }}}
                 <br>
                 {{ $aStudents->major_name }}
                 <br>
@@ -41,10 +42,8 @@
             </td>
         </tr>
         @endforeach
-        @else
-        <tr>        
-            <td style="border: 2px solid #3490dc; text-align: center;">No travellers found for this trip</td>
-        </tr>
+        @else 
+            <p style="border: 2px solid #3490dc; text-align: center; color: #3490dc; margin-top: 3%; width: 20%; margin-left: 40%;">No travellers found for this trip</p>
         @endif
     </table>
     <script>

@@ -16,32 +16,50 @@ class InfoController extends Controller
         $this->infoFrontend = $infoFrontend;
     }
     
+    public function CheckDbConnection(){
+        try {
+            DB::connection()->getPdo();
+        } catch (\Exception $e) {
+            return  true ;  
+        }
+    }
+    
     public function index() {
-        $info_content = $this->Info->getAlgemeneInfo();
-        //return $info_content;
-       
-        return view('partials.backend.info', array("info_content" => $info_content[0]));
+        if($this->CheckDbConnection()){
+            return redirect()->route('home_backend')->withErrors(["DB connectie mislukt" => "Kan niet met de database connecteren, controleer je configuratie"]);
+        }
+        else{
+            $info_content = $this->Info->getAlgemeneInfo();
+            //return $info_content;
+
+            return view('partials.backend.info', array("info_content" => $info_content[0]));
+        }
     }
     
     public function createInfo() {
-        // valideer het request, het info_content veld moet ingevuld zijn
-        $this->validate(request(), [
-            'info_content' => 'required',
-            'info_id' => 'required'
-        ]);
-                
-        if(request()->action == "Opslaan") {
-            if(request()->info_id != "") {
-                $infoContent["content"] = request()->info_content;
-                $infoContent["id"] = request()->info_id;
-                if($this->Info->updateAlgemeneInfo($infoContent)) {
-                    return redirect()->route('info_backend');
-                }
-                return  redirect()->route('info_backend')->withErrors(["Opslaan mislukt" => "Kan de aanpassing niet opslaan"]);
-            }
+        if($this->CheckDbConnection()){
+            return redirect()->route('home_backend')->withErrors(["DB connectie mislukt" => "Kan niet met de database connecteren, controleer je configuratie"]);
         }
-        
-        return redirect()->route('info_backend');
+        else{
+            // valideer het request, het info_content veld moet ingevuld zijn
+            $this->validate(request(), [
+                'info_content' => 'required',
+                'info_id' => 'required'
+            ]);
+
+            if(request()->action == "Opslaan") {
+                if(request()->info_id != "") {
+                    $infoContent["content"] = request()->info_content;
+                    $infoContent["id"] = request()->info_id;
+                    if($this->Info->updateAlgemeneInfo($infoContent)) {
+                        return redirect()->route('info_backend');
+                    }
+                    return  redirect()->route('info_backend')->withErrors(["Opslaan mislukt" => "Kan de aanpassing niet opslaan"]);
+                }
+            }
+
+            return redirect()->route('info_backend');
+        }
     }
     
     public function showAlgemeneInfo(Request $request){
@@ -52,9 +70,9 @@ class InfoController extends Controller
             
             if(isset($trip)){
                 $sAlgemeneInfo = $this->infoFrontend->getAlgemeneInfo();
-                
+                $aEmergencyNumbers = $this->getEmergencyNumbers($trip->trip_id);
                 if (isset($sAlgemeneInfo)){
-                    return view('partials.frontend.algemeneInfo', ["sAlgemeneInfo" => $sAlgemeneInfo]);
+                    return view('partials.frontend.algemeneInfo', ["sAlgemeneInfo" => $sAlgemeneInfo, "aEmergencyNumbers" => $aEmergencyNumbers]);
                 }         
             }
             else
@@ -68,5 +86,20 @@ class InfoController extends Controller
             return redirect()->route('login');
         }
     }
- 
+     private function getEmergencyNumbers($sTripId){
+        
+        $aTravellers = DB::table('travellers_trips')->where('trip_id', '=', $sTripId)->get();  
+
+        foreach ($aTravellers as $aTraveller)
+        {
+            $aEmergencyNumbers[] = DB::table('travellers')->where('traveller_id', '=', $aTraveller->traveller_id)->whereNull('major_name')->first();
+        }             
+
+        if (isset($aEmergencyNumbers)){
+            return $aEmergencyNumbers;
+        }
+        else{
+            return null;
+        } 
+    }
 }

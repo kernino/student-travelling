@@ -17,6 +17,14 @@ class HotelController extends Controller
         $this->hotel = $hotel;   
         
     }
+    
+    public function CheckDbConnection(){
+        try {
+            DB::connection()->getPdo();
+        } catch (\Exception $e) {
+            return  true ;  
+        }
+    }
         
     public function getHotelData(Request $request, $id = null){
         
@@ -34,20 +42,21 @@ class HotelController extends Controller
             if(isset($trip)){
                 $aRoomInfo = $this->hotel->GetAllTravellersPerRoom($iHotel+1, $trip->trip_id);
                 $aHotels = $this->hotel->GetAllHotelData($trip->trip_id); 
+                $aEmergencyNumbers = $this->getEmergencyNumbers($trip->trip_id);
                 
                 if (isset($aRoomInfo) && isset($aHotels)){
-                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => $aHotels, "iHotel" => $iHotel]);
+                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => $aHotels, "iHotel" => $iHotel, "aEmergencyNumbers" => $aEmergencyNumbers]);
                 }
                 else if (isset($aHotels)){
-                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => $aHotels, "iHotel" => $iHotel]);
+                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => $aHotels, "iHotel" => $iHotel, "aEmergencyNumbers" => $aEmergencyNumbers]);
                 }
                 else{
-                   return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1]);  
+                   return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1, "aEmergencyNumbers" => $aEmergencyNumbers]);  
                 }           
             }
             else
             {
-                return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1]);                
+                return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1, "aEmergencyNumbers" => $aEmergencyNumbers]);                
             }
             
         }
@@ -59,6 +68,10 @@ class HotelController extends Controller
     
     public function hotelBackEnd()
     {
+        if($this->CheckDbConnection()){
+            return redirect()->route('home_backend')->withErrors(["DB connectie mislukt" => "Kan niet met de database connecteren, controleer je configuratie"]);
+        }
+        else{
             $no_hotel = "!!! No hotel selected !!!";
             $hotel_info=null;
             if(isset(request()->action))
@@ -88,5 +101,6 @@ class HotelController extends Controller
             }
             $aHotels = $this->hotel->GetAllHotelData(1);
             return view('partials.backend.hotel', ["aHotels" => $aHotels, "hotel_info" => $hotel_info, "no_hotel" =>$no_hotel]);
+            }
     }
 }

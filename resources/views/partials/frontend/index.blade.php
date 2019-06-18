@@ -53,8 +53,8 @@
   </div>
 </div>
 
-<h1 class="home">{{ $aHomeData->destination }}</h1>
-<p class="home">{{ $aHomeData->start_date }} - {{ $aHomeData->end_date }}</p>
+<h1 class="home" style="padding-top: 50px; text-align: center;">{{ $aHomeData->destination }}</h1>
+<p class="home" style="text-align: center;">{{ $aHomeData->start_date }} - {{ $aHomeData->end_date }}</p>
 <img class="home" src="/images/wereldmap2.png" alt="credits to vectorstock" >
 @endsection
 

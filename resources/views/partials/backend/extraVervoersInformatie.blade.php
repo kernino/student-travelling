@@ -2,6 +2,7 @@
 
 @section('container')
 <h1>Extra vervoers informatie</h1>
+<hr>
 <form method="POST" class="htmlEditor" action="/admin/vervoer">
     <div>
         @csrf
@@ -20,5 +21,5 @@
 @endsection
 
 @section('page_specific_scripts')
-    <script>CKEDITOR.replace( 'vervoer_content' );</script>
+    <script>CKEDITOR.replace( 'vervoer_content',{ height:450} );</script>
 @endsection

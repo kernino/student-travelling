@@ -10,7 +10,7 @@
 
 @section('content')
 
-{{ $sAlgemeneInfo->content }}
+<div style="margin-left: 1%;">{{ $sAlgemeneInfo->content }}</div>
 
 @endsection
 
