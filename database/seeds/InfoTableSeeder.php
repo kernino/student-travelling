@@ -12,12 +12,9 @@ class InfoTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 5; $i++){
             DB::table('infos')->insert([
-                'name' => Str::random(10),
+                'name' => "AlgemeneInfo",
                 'content' => Str::random(50)
-            ]);
-        }
-            
+            ]);           
     }
 }

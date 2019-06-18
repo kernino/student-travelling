@@ -31,7 +31,14 @@ class EloquentDayPlanning implements DayPlanningRepository
                   
         }
         
-        return $aPlanning;
+        if (isset($aPlanning)){
+            return $aPlanning;           
+        }
+        else{
+            return null;
+        }
+        
+
     }
     
     public function GetDayPlanning($dayPlanningId) {                   

@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 use App\Repositories\Contracts\InfoRepositoryBackend;
-use App\Models\Infos;
+use App\Repositories\Contracts\AlgemeneInfoRepository;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InfoController extends Controller
 {
     private $Info;
+    private $infoFrontend;
     
-    public function __construct(InfoRepositoryBackend $Info) {
+    public function __construct(InfoRepositoryBackend $Info, AlgemeneInfoRepository $infoFrontend) {
         $this->Info = $Info;
+        $this->infoFrontend = $infoFrontend;
     }
     
     public function index() {
@@ -39,4 +43,30 @@ class InfoController extends Controller
         
         return redirect()->route('info_backend');
     }
+    
+    public function showAlgemeneInfo(Request $request){
+        if ($request->session()->has('code')) {
+            
+            $tripCode = $request->session()->get('code');
+            $trip = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
+            
+            if(isset($trip)){
+                $sAlgemeneInfo = $this->infoFrontend->getAlgemeneInfo();
+                
+                if (isset($sAlgemeneInfo)){
+                    return view('partials.frontend.algemeneInfo', ["sAlgemeneInfo" => $sAlgemeneInfo]);
+                }         
+            }
+            else
+            {
+                return view('partials.frontend.algemeneInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1]);                
+            }
+            
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
+    }
+ 
 }

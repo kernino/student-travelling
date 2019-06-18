@@ -24,6 +24,8 @@
     use App\Repositories\Eloquent\EloquentDayPlanning;
     use App\Repositories\Contracts\PlanningRepository;
     use App\Repositories\Eloquent\EloquentPlanning;
+    use App\Repositories\Eloquent\EloquentAlgemeneInfo;
+    use App\Repositories\Contracts\AlgemeneInfoRepository;
 
     class RepositoryServiceProvider extends ServiceProvider
     {
@@ -33,6 +35,7 @@
             $this->app->singleton(AutoRepositoryBackend::class, EloquentAutoBackend::class);
             $this->app->singleton(HotelRepository::class, EloquentHotel::class);
             $this->app->singleton(DayPlanningRepository::class, EloquentDayPlanning::class);
+            $this->app->singleton(AlgemeneInfoRepository::class, EloquentAlgemeneInfo::class);
             
             $this->app->singleton(VervoerRepositoryBackend::class, EloquentVervoerBackend::class);
             $this->app->singleton(AutoRepository::class, EloquentAuto::class);

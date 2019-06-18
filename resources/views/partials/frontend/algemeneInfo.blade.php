@@ -10,7 +10,7 @@
 
 @section('content')
 
-{{ $aAlgemeneInfo->content }}
+{{ $sAlgemeneInfo->content }}
 
 @endsection
 

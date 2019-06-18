@@ -10,6 +10,7 @@
 
 @section('content')
 <h1 class="planning">Planning</h1>
+@if(isset($aPlanning))
 @foreach ($aPlanning as $location => $dayPlannings)
 <div class="card mx-auto" style="width: 40rem;">
   <div class="card-body">
@@ -20,6 +21,10 @@
   </div>
 </div>
 @endforeach
+@else
+<p>No planning found for this trip.</p>
+@endif
+
 @endsection
 
 @section('scripts')

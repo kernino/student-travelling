@@ -2,18 +2,19 @@
 
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\AlgemeneInfoRepository;
-use App\Models\AlgemeneInfo;
+use App\Models\Info;
+use Illuminate\Support\Facades\DB;
 
 class EloquentAlgemeneInfo implements AlgemeneInfoRepository
 {
-    private $AlgemeneInfoModel;
+    private $InfoModel;
     
-    public function __construct(AlgemeneInfo $model) {
-        $this->AlgemeneInfoModel = $model;
+    public function __construct(Info $model) {
+        $this->InfoModel = $model;
     }
     
     public function getAlgemeneInfo(){
-        $aAlgemeneInfo = DB::table('infos')->where('name', '=', 'Algemene Info')->first();
+        $aAlgemeneInfo = DB::table('infos')->where('name', '=', 'AlgemeneInfo')->first();
         return $aAlgemeneInfo;
     }
 }
