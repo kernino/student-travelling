@@ -27,12 +27,12 @@
     <hr>
     
     <h2 class="contact">Reizigers</h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name" style="margin-bottom: 3%;">
     <table style="width:80%; margin-left: 10%; color: #3490dc;" id="myTable"><tr>
         @if(isset($aContactData))
         @foreach ($aContactData['students'] as $aStudents)
         <tr>
-            <td>
+            <td style="border: 2px solid #3490dc; text-align: center;">
                 {{ $aStudents->first_name }} {{ $aStudents->last_name }}
                 <br>
                 {{ $aStudents->major_name }}
