@@ -74,4 +74,8 @@ class EloquentHotel implements HotelRepository
         return DB::table("hotels")->select("hotel_id", "hotel_information")->where(["hotel_id" =>$hotelContent["ID"]])->update(["hotel_information"=>$hotelContent["content"]]);
     }
 
+    public function GetHotelById($hotel_id) {
+        return DB::table("hotels")->where("hotel_id","=",$hotel_id)->get();
+    }
+
 }

@@ -10,4 +10,6 @@ interface HotelRepository
     public function GetAllHotelData($trip_id);
     
     public function UpdateHotelInformation(array $hotelContent);
+    
+    public function GetHotelById($hotel_id);
 }

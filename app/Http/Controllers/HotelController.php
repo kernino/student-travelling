@@ -82,16 +82,14 @@ class HotelController extends Controller
                     {
                     $hotelContent["content"]= request()->hotel_content;
                     $hotelContent["ID"]= request()->hotel_id;
-                    var_dump(request()->hotel_id);
                     $this->hotel->UpdateHotelInformation($hotelContent);
-                    $hotel_info = DB::table("hotels")->where("hotel_id","=",request()->hotel_id)->get();
-                    }
+                    $hotel_info=$this->hotel->GetHotelById(request()->hotel_id);                    }
                 }
                 else if(request()->action =="Annuleren")
                 {
                     if(request()->hotel_id!=null)
                     {
-                    $hotel_info = DB::table("hotels")->where("hotel_id","=",request()->hotel_id)->get();
+                        $hotel_info=$this->hotel->GetHotelById(request()->hotel_id);
                     }
                 }
                 else
