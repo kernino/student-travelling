@@ -42,6 +42,7 @@ Route::post('/admin/vervoer', 'VervoerController@create');
 Route::get('/admin/planning', 'PlanningController@GetAllPlanningen')->name("planningen");
 Route::get('/admin/planningWijzig/{id}/{dagnr}', 'PlanningController@GetPlanning')->name("planningWijzig");
 Route::post('/admin/planningWijzig/{id}', 'PlanningController@CUD');
+Route::post('/admin/planning', 'PlanningController@CUD');
 
 Route::get('/admin/hotel', 'HotelController@hotelBackEnd')->name('hotel_backend');
 Route::post('/admin/hotel', 'HotelController@hotelBackEnd');
