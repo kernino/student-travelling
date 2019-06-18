@@ -37,11 +37,11 @@
         
         @if(empty($aPlanning->day_planning_id))
             <input type="submit" value="Toevoegen" name="action"/>
-            <input type="button" value="Annuleren" onclick="history.go(0)"/>
+            <input type="button" value="Annuleren" onclick="history.go(-1)"/>
         @else
             <input type="submit" value="Opslaan" name="action"/>
             <input type="submit" value="Verwijderen" name="action"/>
-            <input type="button" value="Annuleren" onclick="history.go(0)"/>
+            <input type="button" value="Annuleren" onclick="history.go(-1)"/>
         @endif
         
         
