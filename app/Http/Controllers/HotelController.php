@@ -17,6 +17,14 @@ class HotelController extends Controller
         $this->hotel = $hotel;   
         
     }
+    
+    public function CheckDbConnection(){
+        try {
+            DB::connection()->getPdo();
+        } catch (\Exception $e) {
+            return  true ;  
+        }
+    }
         
     public function getHotelData(Request $request, $id = null){
         
@@ -59,7 +67,12 @@ class HotelController extends Controller
     
     public function hotelBackEnd()
     {
+        if($this->CheckDbConnection()){
+            return redirect()->route('home_backend')->withErrors(["DB connectie mislukt" => "Kan niet met de database connecteren, controleer je configuratie"]);
+        }
+        else{
             $aHotels = $this->hotel->GetAllHotelData();
             return view('partials.backend.hotel', ["aHotels" => $aHotels]);
+        }
     }
 }

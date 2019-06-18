@@ -20,7 +20,7 @@
     @endif    
 </div>
  
-
+@include('layouts.error')
 @endsection
 
 @section('scripts')

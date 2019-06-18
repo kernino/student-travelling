@@ -9,104 +9,109 @@ and open the template in the editor.
     Author     : koend
 */
 
-h1.inlog{
-    padding-top: 50px;
+h1.inlog {
+  padding-top: 50px;
 }
 
-h1.inlog, h2.inlog{
-    text-align: center;
-    margin: 20px;
-    color: #3490dc;
+h1.inlog,
+h2.inlog {
+  text-align: center;
+  margin: 20px;
+  color: #3490dc;
 }
 
-input#code{
-    margin: auto;
-    width: 500px;
-    margin-top: 100px;
-    border-color: #3490dc;
-    border-radius: 10px;
+input#code {
+  margin: auto;
+  width: 500px;
+  margin-top: 100px;
+  border-color: #3490dc;
+  border-radius: 10px;
 }
 
-button#inlogButton{
-    position: absolute;
-    margin: auto;
-    right: 49%;
-    left: 48%
+button#inlogButton {
+  position: absolute;
+  margin: auto;
+  right: 49%;
+  left: 48%;
 }
 
-h1.home, p.home{
-    text-align: center;
-    margin: 20px;
-    color: #3490dc;
+h1.home,
+p.home {
+  text-align: center;
+  margin: 20px;
+  color: #3490dc;
 }
 
-img.home{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+img.home {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
-h1.planning{
-    text-align: center;
-    color: #3490dc;
+h1.planning {
+  text-align: center;
+  color: #3490dc;
 }
 
-h1.planningDay, h2.planningDay{
-    text-align: center;
-    color: #3490dc;
+h1.planningDay,
+h2.planningDay {
+  text-align: center;
+  color: #3490dc;
 }
 
-div.planningDay{
-    margin-left: 1%;
+div.planningDay {
+  margin-left: 1%;
 }
 
-h1.hotel{
-    text-align: center;
-    color: #3490dc;
+h1.hotel {
+  text-align: center;
+  color: #3490dc;
 }
 
-h2.hotel, h3.hotel{
-    margin-left: 1%;
-    color: #3490dc;
+h2.hotel,
+h3.hotel {
+  margin-left: 1%;
+  color: #3490dc;
 }
 
-p.hotel{
-    margin-left: 1%;
+p.hotel {
+  margin-left: 1%;
 }
 
-input#myInput{
-    border-color: #3490dc;
-    border-radius: 10px;
-    margin-left: 1%;
+input#myInput {
+  border-color: #3490dc;
+  border-radius: 10px;
+  margin-left: 1%;
 }
 
-button#hotelbtn{
-    margin-left: 1%;
-    margin-bottom: 1%;
+button#hotelbtn {
+  margin-left: 1%;
+  margin-bottom: 1%;
 }
 
-h1.vervoer{
-    text-align: center;
-    color: #3490dc;
+h1.vervoer {
+  text-align: center;
+  color: #3490dc;
 }
 
-h2.vervoer, h3.vervoer{
-    margin-left: 1%;
-    color: #3490dc;
+h2.vervoer,
+h3.vervoer {
+  margin-left: 1%;
+  color: #3490dc;
 }
 
-h1.contact{
-    
-    text-align: center;
-    color: #3490dc;
+h1.contact {
+  text-align: center;
+  color: #3490dc;
 }
 
-h2.contact{
-    margin-left: 1%;
-    color: #3490dc;
+h2.contact {
+  margin-left: 1%;
+  color: #3490dc;
 }
 
-div#navbarSupportedContent{
-    background-color: #3490dc;
+div#navbarSupportedContent {
+  background-color: #3490dc;
 }
+
