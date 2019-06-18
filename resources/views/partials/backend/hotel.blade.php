@@ -2,31 +2,32 @@
 
 @section('container')
     <h1>Hotels</h1>
+    <form method="POST" class="htmlEditor" action="/admin/hotel">
+        @if ($hotel_info != null)
+        <input type="hidden" value="{{ $hotel_info[0]->hotel_id ?? "" }}" name="hotel_id" />
+        @endif
     @foreach ($aHotels as $hotel)
-    <button type="button" onclick='changeDesc({{$hotel->hotel_name}})' class="btn btn-primary">{{ $hotel->hotel_name }}</button>
+    <input type="submit" value="{{$hotel->hotel_name}}" name="action" class="btn btn-primary"/>
     @endforeach
-    <form method="POST" class="htmlEditor">
     <div>
-        {{ csrf_field() }} 
+        @csrf
         <h3>Hotel info:</h3>
+        <input type="hidden" 
         <input type="hidden" value="vluchtInfo" name="info_type" />
-        <textarea cols="80" rows="12" id="hotel_info" name="info_content"> 
+        <textarea cols="80" rows="12" id="hotel_info" name="hotel_content">
+        @if ($hotel_info != null)
+        {{$hotel_info[0]->hotel_information}}
+        @else
+        {{$no_hotel}}
+        @endif
         </textarea>
+        <input type="submit" value="Opslaan" name="action"/>
+        <input type="submit" value="Annuleren" name="action"/>
         
-        <input type="submit" value="Opslaan" name="save"/>
-        <input type="button" value="Annuleren" onclick="history.go(0)"/>
-        
-        @include('layouts.error')
     </div>
 </form>
+@include('layouts.error')
 @endsection
 @section('page_specific_scripts')
-    <script>CKEDITOR.replace('info_content');</script>
-    <script>
-        function changeDesc($hotel)
-        {
-           var editor = document.getElementById("hotel_info");
-           editor.value = $name;
-       }
-    </script>
+    <script>CKEDITOR.replace('hotel_content');</script>
 @endsection

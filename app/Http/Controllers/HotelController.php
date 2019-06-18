@@ -59,7 +59,34 @@ class HotelController extends Controller
     
     public function hotelBackEnd()
     {
-            $aHotels = $this->hotel->GetAllHotelData();
-            return view('partials.backend.hotel', ["aHotels" => $aHotels]);
+            $no_hotel = "!!! No hotel selected !!!";
+            $hotel_info=null;
+            if(isset(request()->action))
+            {
+                if(request()->action == "Opslaan")
+                {
+                    if(request()->hotel_id!=null)
+                    {
+                    $hotelContent["content"]= request()->hotel_content;
+                    $hotelContent["ID"]= request()->hotel_id;
+                    var_dump(request()->hotel_id);
+                    $this->hotel->UpdateHotelInformation($hotelContent);
+                    $hotel_info = DB::table("hotels")->where("hotel_id","=",request()->hotel_id)->get();
+                    }
+                }
+                else if(request()->action =="Annuleren")
+                {
+                    if(request()->hotel_id!=null)
+                    {
+                    $hotel_info = DB::table("hotels")->where("hotel_id","=",request()->hotel_id)->get();
+                    }
+                }
+                else
+                    {
+                        $hotel_info = DB::table("hotels")->where("hotel_name","=", request()->action)->get();
+                    }
+            }
+            $aHotels = $this->hotel->GetAllHotelData(1);
+            return view('partials.backend.hotel', ["aHotels" => $aHotels, "hotel_info" => $hotel_info, "no_hotel" =>$no_hotel]);
     }
 }
