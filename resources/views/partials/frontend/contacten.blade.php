@@ -34,7 +34,7 @@
         @foreach ($aContactData['students'] as $aStudents)
         <tr>
             <td style="border: 2px solid #3490dc; text-align: center;">
-                {{ $aStudents->first_name }} {{ $aStudents->last_name }}
+                {{ $aStudents->first_name }} {{ $aStudents->last_name }}}
                 <br>
                 {{ $aStudents->major_name }}
                 <br>
