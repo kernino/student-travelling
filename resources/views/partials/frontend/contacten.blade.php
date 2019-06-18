@@ -19,7 +19,8 @@
                         {{ $aBegeleider->phone }}</td>
                     @endforeach
                 @else
-                    <td style="border: 2px solid #3490dc; text-align: center;">No travellers found for this trip</td>
+            </tr>
+                    <p style="border: 2px solid #3490dc; text-align: center; color: #3490dc; margin-top: 3%; width: 20%; margin-left: 40%;">No travellers found for this trip</p>
                 @endif
             </tr>
     </table>
@@ -41,10 +42,8 @@
             </td>
         </tr>
         @endforeach
-        @else
-        <tr>        
-            <td style="border: 2px solid #3490dc; text-align: center;">No travellers found for this trip</td>
-        </tr>
+        @else 
+            <p style="border: 2px solid #3490dc; text-align: center; color: #3490dc; margin-top: 3%; width: 20%; margin-left: 40%;">No travellers found for this trip</p>
         @endif
     </table>
     <script>

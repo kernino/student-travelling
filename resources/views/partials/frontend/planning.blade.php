@@ -22,7 +22,7 @@
 </div>
 @endforeach
 @else
-<p>No planning found for this trip.</p>
+<p style="border: 2px solid #3490dc; text-align: center; color: #3490dc; margin-top: 3%; width: 20%; margin-left: 40%;">No planning found for this trip.</p>
 @endif
 
 @endsection
