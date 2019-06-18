@@ -31,11 +31,16 @@ class ContactController extends Controller
                 }
             }   
             
-            return view('partials.frontend.contacten', ["aContactData" => $aTravellersInTrip]);
+            if(isset($aTravellersInTrip)){
+                return view('partials.frontend.contacten', ["aContactData" => $aTravellersInTrip]);               
+            }
+            else{
+                return view('partials.frontend.contacten', ["aContactData" => null]);
+            }
         }
         else
         {
-            return redirect()->route('login');
+            return view('partials.frontend.inlogScherm', ["bError" => false]);
         }
     }
 }

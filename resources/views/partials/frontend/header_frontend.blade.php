@@ -26,17 +26,19 @@
       </li>
     </ul>
       <ul class="navbar-nav ml-auto">
-          @if(isset($aEmergencyNumbers))
       <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
           Noodnummers
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            @foreach($aEmergencyNumbers as $aEmergencyNumber)
-            @if(isset($aEmergencyNumber->first_name))
-            <p class="dropdown-item" style="color: #3490dc;">{{ $aEmergencyNumber->first_name }} {{ $aEmergencyNumber->last_name }} {{ $aEmergencyNumber->phone }}</p>
-            @endif
-            @endforeach
+            @if(isset($aEmergencyNumbers))
+                @foreach($aEmergencyNumbers as $aEmergencyNumber)
+                @if(isset($aEmergencyNumber->first_name))
+                <p class="dropdown-item" style="color: #3490dc;">{{ $aEmergencyNumber->first_name }} {{ $aEmergencyNumber->last_name }} {{ $aEmergencyNumber->phone }}</p>
+                @endif
+                @endforeach
+            @else
+                <p class="dropdown-item" style="color: #3490dc;">No emergency numbers found for this trip</p>
             @endif
         </div>
       </li>
