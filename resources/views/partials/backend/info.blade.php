@@ -2,6 +2,7 @@
 
 @section('container')
 <h1>Algemene Info</h1>
+<hr>
 <form method="POST" class="htmlEditor" action="/admin/info">
     <div>
         @csrf
@@ -20,5 +21,6 @@
 @endsection
 
 @section('page_specific_scripts')
-    <script>CKEDITOR.replace( 'info_content' );</script>
+    <script>CKEDITOR.replace( 'info_content',{ height:450} ); </script>
+
 @endsection

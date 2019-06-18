@@ -43,7 +43,7 @@
                         @endif
                     @else
                         <td>					  
-                            <div class="card" style="width: 18rem;">
+                            <div class="card card-right" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">dag {{ $i }} - {{$daysplannings->name}}</h5>
                                     <p class="card-text"><b style="font-size: 18px;">{{$daysplannings->end_location}}</b> <br> {{$daysplannings->date}} <br> {{$daysplannings->highlight}}</p>
