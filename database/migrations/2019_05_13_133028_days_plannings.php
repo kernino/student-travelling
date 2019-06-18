@@ -18,8 +18,8 @@ class DaysPlannings extends Migration
             $table->string('name');
             $table->date('date');
             $table->string('end_location');
-            $table->string('highlight');
-            $table->text('description');
+            $table->string('highlight')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });   
     }
