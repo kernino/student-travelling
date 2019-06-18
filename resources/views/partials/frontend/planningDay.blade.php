@@ -9,9 +9,9 @@
 @endsection
 
 @section('content')
-<h1 class="planningDay">{{!! $aPlanning->date !!}}</h1>
-<h2 class="planningDay">{{!! $aPlanning->end_location !!}}</h2>
-<div class="planningDay">{{!! $aPlanning->description !!}}</div>
+<h1 class="planningDay">{!! $aPlanning->date !!}</h1>
+<h2 class="planningDay">{!! $aPlanning->end_location !!}</h2>
+<div class="planningDay">{!! $aPlanning->description !!}</div>
 @endsection
 
 @section('scripts')
