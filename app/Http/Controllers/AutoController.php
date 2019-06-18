@@ -26,8 +26,13 @@ class AutoController extends Controller
             $trip = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
             
             $aAutoData = $this->auto->GetAllTravelersByAuto($trip->trip_id);
+            
+            if ($aAutoData == null){
+                $bError = true;
+                $sErrorMessage = "No cars found for trip".$trip->trip_id;
+            }
 
-            return view('partials.frontend.vervoerInfo', ["aCars" => $aAutoData]);
+            return view('partials.frontend.vervoerInfo', ["aCars" => $aAutoData, "bError" => $bError, "sErrorMessage" => $sErrorMessage]);
         }
         else
         {

@@ -13,12 +13,14 @@
     <h2 class="contact">Begeleiders</h2>
         <table style="width:80%; margin-left: 10%; color: #3490dc; margin-top: 2%; margin-bottom: 2%;">
             <tr>
-            @foreach ($aContactData['mentors'] as $aBegeleider)
-
-                <td style="border: 2px solid #3490dc; text-align: center;">{{ $aBegeleider->first_name }} {{ $aBegeleider->last_name }}<br>
-                {{ $aBegeleider->phone }}</td>
-
-            @endforeach
+                @if(isset($aContactData))
+                    @foreach ($aContactData['mentors'] as $aBegeleider)
+                        <td style="border: 2px solid #3490dc; text-align: center;">{{ $aBegeleider->first_name }} {{ $aBegeleider->last_name }}<br>
+                        {{ $aBegeleider->phone }}</td>
+                    @endforeach
+                @else
+                    <td style="border: 2px solid #3490dc; text-align: center;">No travellers found for this trip</td>
+                @endif
             </tr>
     </table>
     
@@ -27,6 +29,7 @@
     <h2 class="contact">Reizigers</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
     <table style="width:80%; margin-left: 10%; color: #3490dc;" id="myTable"><tr>
+        @if(isset($aContactData))
         @foreach ($aContactData['students'] as $aStudents)
         <tr>
             <td>
@@ -38,6 +41,11 @@
             </td>
         </tr>
         @endforeach
+        @else
+        <tr>        
+            <td style="border: 2px solid #3490dc; text-align: center;">No travellers found for this trip</td>
+        </tr>
+        @endif
     </table>
     <script>
     function myFunction() {

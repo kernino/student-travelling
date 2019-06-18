@@ -1,7 +1,7 @@
 @extends('partials.backend.index')
 
 @section('container')
-    <h1>Vervoer</h1>
+    <h1>Hotels</h1>
     @foreach ($aHotels as $hotel)
     <button type="button" onclick='changeDesc({{$hotel->hotel_name}})' class="btn btn-primary">{{ $hotel->hotel_name }}</button>
     @endforeach

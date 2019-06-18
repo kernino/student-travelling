@@ -22,12 +22,34 @@ class HotelController extends Controller
         if ($request->session()->has('code')) {
             
             $tripCode = $request->session()->get('code');
+            $request->
             $trip = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
+            if(Input::get('id') !== null){
+                $iHotel = Input::get('id');
+            }
+            else{
+                $iHotel = 0;
+            }
             
-            $aRoomInfo = $this->hotel->GetAllTravellersPerRoom(1, $trip->trip_id);
-            $aHotels = $this->hotel->GetAllHotelData(); 
+            if(isset($trip)){
+                $aRoomInfo = $this->hotel->GetAllTravellersPerRoom(1, $trip->trip_id);
+                $aHotels = $this->hotel->GetAllHotelData(); 
+                
+                if (isset($aRoomInfo) && isset($aHotels)){
+                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => $aHotels, "iHotel" => $iHotel]);
+                }
+                else if (isset($aHotels)){
+                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => $aHotels, "iHotel" => -1]);
+                }
+                else if (isset($aRoomInfo)){
+                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => "", "iHotel" => -1]);
+                }      
+            }
+            else
+            {
+                return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1]);                
+            }
             
-            return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => $aHotels]);
         }
         else
         {

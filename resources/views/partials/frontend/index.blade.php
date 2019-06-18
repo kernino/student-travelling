@@ -9,6 +9,27 @@
 @endsection
 
 @section('content')
+<!-- error Modal -->
+<div class="modal fade" id="ErrorModal" tabindex="-1" role="dialog" aria-labelledby="ErrorModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ErrorModalTitle">Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert">
+              No Home data found
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" id="btn1">Sluiten</button>
+          </div>
+    </div>
+  </div>
+</div>   
 <!-- Modal -->
 <div class="modal fade" id="{{ $sAccepted }}" tabindex="-1" role="dialog" aria-labelledby="AlgemeneAfspraken" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -38,6 +59,9 @@
 @endsection
 
 @section('scripts')
+@if($aHomeData == null)
+  <script> $('#ErrorModal').modal('show');</script>
+@endif
 <script>
     $( document ).ready(function() {
         document.getElementById('sluitKnop').disabled = true;
