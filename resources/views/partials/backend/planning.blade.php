@@ -1,7 +1,7 @@
 @extends('partials.backend.index')
 
 @section('container')
-    <div class="htmlContent">
+    <div class="htmlContent" style="margin-bottom: 20px;">
         <h1 >{{ $aTripData[0]->name }}</h1>
         <p class="date">{{$aTripData[0]->start_date }} - {{$aTripData[0]->end_date }}</p>
         
@@ -13,20 +13,21 @@
             </thead>
             
             <tbody>
+                @php
+                    $i = 1;
+                @endphp
                 
                 @foreach ($aPlanningen as $daysplannings)
-                    @php
-                        $i = $daysplannings->day_planning_id;
-                    @endphp
                     
-                    @if ($daysplannings->day_planning_id % 2 != 0 )			
+                    
+                    @if ($i % 2 != 0 )			
                         <tr>
                         <td>					  
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
-                                    <h5 class="card-title">dag {{ $daysplannings->day_planning_id }} - {{$daysplannings->name}}</h5>
+                                    <h5 class="card-title">dag {{ $i }} - {{$daysplannings->name}}</h5>
                                     <p class="card-text">{{$daysplannings->date}} <br> {{$daysplannings->end_location}}</p>
-                                    <a href="{{ route('planningWijzig',[ "id" => $daysplannings->day_planning_id]) }}" class="btn btn-primary">Wijzig planning</a>
+                                    <a href="{{ route('planningWijzig',[ "id" => $daysplannings->day_planning_id, "dagnr" => $i]) }}" class="btn btn-primary">Wijzig planning</a>
                                 </div>
                             </div>
                         </td>
@@ -40,14 +41,13 @@
                         @else
                         <td style="padding-left: 150px;"></td>
                         @endif
-                       
                     @else
                         <td>					  
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
-                                    <h5 class="card-title">dag {{ $daysplannings->day_planning_id }} - {{$daysplannings->name}}</h5>
+                                    <h5 class="card-title">dag {{ $i }} - {{$daysplannings->name}}</h5>
                                     <p class="card-text">{{$daysplannings->date}} <br> {{$daysplannings->end_location}}</p>
-                                    <a href="{{ route('planningWijzig',[ "id" => $daysplannings->day_planning_id]) }}" class="btn btn-primary">Wijzig planning</a>
+                                    <a href="{{ route('planningWijzig',[ "id" => $daysplannings->day_planning_id, "dagnr" => $i]) }}" class="btn btn-primary">Wijzig planning</a>
                                 </div>
                             </div>
                         </td>
@@ -71,7 +71,7 @@
             </tbody>
         </table>
         
-        <a href="#" class="btn btn-primary">Voeg planning toe</a>
+        <a href="{{ route('planningWijzig', [ "id" => 0, "dagnr" => 0]) }}}}" class="btn btn-primary">Voeg planning toe</a>
     </div>
 
 @include('layouts.error')

@@ -7,3 +7,57 @@ and open the template in the editor.
     Created on : Apr 29, 2019, 12:44:30 PM
     Author     : koend
 */
+
+.navbar-default {
+  font-size: 1.15em;
+  font-weight: 400;
+  background-color: #3BA3FB;
+  padding: 10px;
+  border: 0px;
+  border-radius: 0px;
+}
+ 
+.reis1{
+    color: #208B59;
+}
+ 
+.reis2 {
+    color: #FF0000;
+}
+ 
+nav a, nav  li {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+ 
+nav.hoofd-nav{
+    position: fixed;
+    top: 58px;
+    bottom: 0;
+    margin-left:-30px;
+    background-color: hsl(208, 96%, 61%);
+    z-index:1;
+}
+ 
+nav.hoofd-nav li{
+    margin-left:0px;
+    margin: 10px;
+text-decoration: none;
+}
+ 
+nav.hoofd-nav li a:hover{
+    text-decoration: none;
+}
+
+input#id{
+    align-self: center;
+}
+
+button.btn btn-primary{
+    align-self: center;
+}
+
+table#myTable{
+    
+}

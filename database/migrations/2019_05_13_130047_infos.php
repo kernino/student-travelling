@@ -15,8 +15,8 @@ class Infos extends Migration
     {
         Schema::create('infos', function (Blueprint $table) {
             $table->increments('info_id')->unique();
-            $table->text('name')->nullable();
-            $table->text('content')->nullable();
+            $table->string('name');
+            $table->text('content');
             $table->timestamps();
         });   
     }
@@ -28,6 +28,6 @@ class Infos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('info');
+        Schema::dropIfExists('infos');
     }
 }

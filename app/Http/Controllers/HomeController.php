@@ -17,9 +17,16 @@ class HomeController extends Controller
     {
         $trip = DB::table('trips')->where('travel_code', '=', $request->input("code"))->first();
         
-        $request->session()->put('code', $trip->travel_code);
+        if ($trip == null){
+            $bError = true;
+            $sErrorMessage = "Trip not found";
+            return view('partials.frontend.inlogScherm', ["bError" => $bError]);
+        }
+        else{
+            $request->session()->put('code', $trip->travel_code);
         
-        return redirect()->route('home');
+            return redirect()->route('home');
+        }
     }
     
     public function readAndAccepted(Request $request)
@@ -45,11 +52,15 @@ class HomeController extends Controller
                 foreach ($aTravellers as $aTraveller)
                 {
                     $aEmergencyNumbers[] = DB::table('travellers')->where('traveller_id', '=', $aTraveller->traveller_id)->whereNull('major_name')->first();
+                }             
+
+                if (isset($aEmergencyNumbers)){
+                    return view('partials.frontend.index', ["aHomeData" => $aHomeData, "sAccepted" => $sAccepted, "aEmergencyNumbers" => $aEmergencyNumbers]);  
                 }
-
-
-                return view('partials.frontend.index', ["aHomeData" => $aHomeData, "sAccepted" => $sAccepted, "aEmergencyNumbers" => $aEmergencyNumbers]);
-                
+                else{
+                    return view('partials.frontend.index', ["aHomeData" => $aHomeData, "sAccepted" => $sAccepted, "aEmergencyNumbers" => null]);  
+                }  
+                              
             }
             else
             {
@@ -62,15 +73,21 @@ class HomeController extends Controller
                     foreach ($aTravellers as $aTraveller)
                     {
                         $aEmergencyNumbers[] = DB::table('travellers')->where('traveller_id', '=', $aTraveller->traveller_id)->whereNull('major_name')->first();
-                    }   
+                    }
+                    
+                    if (isset($aEmergencyNumbers)){
+                        return view('partials.frontend.index', ["aHomeData" => $aHomeData, "sAccepted" => "", "aEmergencyNumbers" => $aEmergencyNumbers]);
+                    }
+                    else{
+                        return view('partials.frontend.index', ["aHomeData" => $aHomeData, "sAccepted" => "", "aEmergencyNumbers" => null]);
+                    }  
 
-
-                    return view('partials.frontend.index', ["aHomeData" => $aHomeData, "sAccepted" => "", "aEmergencyNumbers" => $aEmergencyNumbers]);
+                    
             }
         }
         else
         {
-            return redirect()->route('login');
+            return view('partials.frontend.inlogScherm', ["bError" => false]);
         }
     }
     

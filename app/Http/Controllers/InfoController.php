@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\InfoRepositoryBackend;
+use App\Models\Infos;
 
 class InfoController extends Controller
 {

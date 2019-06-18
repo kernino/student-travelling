@@ -9,23 +9,29 @@
 @endsection
 
 @section('content')
-    <h1>Hotel Info</h1>
+<h1 class="hotel">Hotel Info</h1>
+    @if(is_array($aHotels))
             @foreach ($aHotels as $hotel)
-            <button type="button" class="btn btn-primary">{{ $hotel->hotel_name }}</button>
+            <a  href="{{route('hotelInfo', ['id' => $loop->index])}}"> <button type="button" id="hotelbtn" class="btn btn-primary">{{ $hotel->hotel_name }}</button></a>
             @endforeach
-    <h3>Algemene info:</h3>
-    <p>{{ $aHotels[0]->hotel_information }}</p>
-    <h3>Adres:</h3>
-    <p>{{ $aHotels[0]->address }}</p>
+    <h3 class="hotel">Algemene info:</h3>
+    <p class="hotel">{{ $aHotels[$iHotel]->hotel_information }}</p>
+    <h3 class="hotel">Adres:</h3>
+    <p class="hotel">{{ $aHotels[$iHotel]->address }}</p>
     <hr>
-    <h2>Kamer indeling</h2>
+    @else
+    <p class="hotel">No hotel data found</p>
+    @endif
+
+    <h2 class="hotel">Kamer indeling</h2>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <table style="width:100%;" id="myTable">
+    <table style="width:80%; margin-left: 10%" id="myTable">
+        @if(is_array($aRoomInfo))
         @foreach ($aRoomInfo as $iRoomId => $aTravellers)
         <tr>
-            <th>Kamer {{ $iRoomId }}</th>
+            <th style="color: #3490dc; border: 2px solid #3490dc; text-align: center;">Kamer {{ $iRoomId }}</th>
             @foreach ($aTravellers as $aTraveller)
-            <td>
+            <td style="color: #3490dc; border: 2px solid #3490dc; text-align: center;">
                 {{ $aTraveller->first_name }} {{ $aTraveller->last_name }}
                 <br>
                 @if(isset($aTraveller->major_name))
@@ -38,7 +44,11 @@
         </tr>
         <br>
         @endforeach
+        @else
+        <p class="hotel">No travellers found in this hotel</p>
+        @endif
     </table>
+    
     <script>
     function myFunction() {
       var input, filter, table, tr, td, i, allTd;

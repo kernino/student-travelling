@@ -20,12 +20,25 @@ class EloquentHotel implements HotelRepository
     
     public function GetAllTravellersPerRoom($hotel_id=1, $trip_id=1){
         
-        $hotel = DB::table('hotels_trips')->where('hotel_id', '=', $hotel_id)->where('trip_id', '=', $trip_id)->first();   
+        $hotel = DB::table('hotels_trips')->where('hotel_id', '=', $hotel_id)->where('trip_id', '=', $trip_id)->first();
+        
+        if (!(isset($hotel))){
+            return;
+        }
+        
         $rooms = DB::table('rooms_hotels_trips')->where('hotel_trip_id', '=', $hotel->hotel_trip_id)->get();
-           
+         
+        if (!(isset($rooms))){
+            return;
+        }
+        
         foreach ($rooms as $room)
         {
             $travellerRooms = DB::table('travellers_rooms')->where('room_hotel_trip_id', '=', $room->room_hotel_trip_id)->get();
+            
+            if (!(isset($travellerRooms))){
+                return;
+            }
             
             foreach ($travellerRooms as $travellerRoom)
             {

@@ -2,8 +2,7 @@
 
 @section('container')
 <h1>Algemene Info</h1>
-
-<form action="{{ Request::url() }}/save" method="POST" class="htmlEditor">
+<form method="POST" class="htmlEditor" action="/admin/info">
     <div>
         @csrf
         
