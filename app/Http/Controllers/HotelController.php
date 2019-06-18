@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Repositories\Contracts\HotelRepository;
 use App\Models\Hotels;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 
 class HotelController extends Controller
@@ -17,33 +18,32 @@ class HotelController extends Controller
         
     }
         
-    public function getHotelData(Request $request){
+    public function getHotelData(Request $request, $id = null){
         
         if ($request->session()->has('code')) {
             
             $tripCode = $request->session()->get('code');
-            $request->
             $trip = DB::table('trips')->where('travel_code', '=', $tripCode)->first();  
-            if(Input::get('id') !== null){
-                $iHotel = Input::get('id');
+            if($id !== null){
+                $iHotel = $id;
             }
             else{
                 $iHotel = 0;
             }
             
             if(isset($trip)){
-                $aRoomInfo = $this->hotel->GetAllTravellersPerRoom(1, $trip->trip_id);
-                $aHotels = $this->hotel->GetAllHotelData(); 
+                $aRoomInfo = $this->hotel->GetAllTravellersPerRoom($iHotel+1, $trip->trip_id);
+                $aHotels = $this->hotel->GetAllHotelData($trip->trip_id); 
                 
                 if (isset($aRoomInfo) && isset($aHotels)){
                     return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => $aHotels, "iHotel" => $iHotel]);
                 }
                 else if (isset($aHotels)){
-                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => $aHotels, "iHotel" => -1]);
+                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => $aHotels, "iHotel" => $iHotel]);
                 }
-                else if (isset($aRoomInfo)){
-                    return view('partials.frontend.hotelInfo', ["aRoomInfo" => $aRoomInfo, "aHotels" => "", "iHotel" => -1]);
-                }      
+                else{
+                   return view('partials.frontend.hotelInfo', ["aRoomInfo" => "", "aHotels" => "", "iHotel" => -1]);  
+                }           
             }
             else
             {

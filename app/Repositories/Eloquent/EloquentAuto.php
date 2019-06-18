@@ -37,8 +37,13 @@ class EloquentAuto implements AutoRepository
             }
         }
       
-        ksort($travellersPerAuto);
+        if (isset($travellersPerAuto)){
+            ksort($travellersPerAuto);
         
-        return $travellersPerAuto;
+            return $travellersPerAuto;
+        }
+        else{
+            return null;
+        }
     }
 }

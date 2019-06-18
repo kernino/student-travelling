@@ -10,15 +10,19 @@
 
 @section('content')
 <h1 class="vervoer">Vervoer Informatie</h1>
-<h2 class="vervoer">Vliegtuig</h2>
-<div></div>
-<!--<h3>Algemene info:</h3>
-<p></p>-->
+<h2 class="vervoer">Extra informatie</h2>
+
+@if(isset($sTransportationInfo))
+<div>{!! $sTransportationInfo !!}</div>
+@else
+<p class="vervoer">No transportation info found for this trip</p>
+@endif
 <hr>
 <h2 class="vervoer">Auto</h2>
 <h3 class="vervoer">Auto verdeling:</h3>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 <table style="width:80%; margin-left: 10%; color: #3490dc; margin-top: 5%;" id="myTable" >
+    @if(isset($aCars))
     @foreach ($aCars as $iCarId=>$aCar)
     <tr>
         <th style="border: 2px solid #3490dc; text-align: center;">Chauffeurs auto {{ $iCarId }}</th>
@@ -36,8 +40,12 @@
         
         @endforeach
     </tr>
-    
     @endforeach
+    @else
+        <tr>
+            <th style="border: 2px solid #3490dc; text-align: center;">No cars found for this trip</th>
+        </tr>
+    @endif
 </table>
 <script>
     function myFunction() {

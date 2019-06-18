@@ -6,7 +6,7 @@ interface HotelRepository
 {
     public function GetTravellersByName(string $sName);
     
-    public function GetAllTravellersPerRoom();
+    public function GetAllTravellersPerRoom($hotel_id, $trip_id);
     
-    public function GetAllHotelData();
+    public function GetAllHotelData($trip_id);
 }

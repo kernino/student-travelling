@@ -18,7 +18,7 @@ class EloquentHotel implements HotelRepository
         return $travellers;
     }
     
-    public function GetAllTravellersPerRoom($hotel_id=1, $trip_id=1){
+    public function GetAllTravellersPerRoom($hotel_id, $trip_id){
         
         $hotel = DB::table('hotels_trips')->where('hotel_id', '=', $hotel_id)->where('trip_id', '=', $trip_id)->first();
         
@@ -46,12 +46,18 @@ class EloquentHotel implements HotelRepository
             }
         }
       
-        ksort($travellersPerRoom);
+        if(isset($travellersPerRoom)){
+            ksort($travellersPerRoom);
         
-        return $travellersPerRoom;
+            return $travellersPerRoom;
+        }
+        else{
+            return null;
+        }
+
     }
     
-    public function GetAllHotelData($trip_id=1){
+    public function GetAllHotelData($trip_id){
         $hotels = DB::table('hotels_trips')->where('trip_id', '=', $trip_id)->get();
         
         foreach ($hotels as $hotel)
@@ -59,6 +65,12 @@ class EloquentHotel implements HotelRepository
             $aHotels[] = DB::table('hotels')->where('hotel_id', '=', $hotel->hotel_id)->first();
         }
         
-        return $aHotels;
+        if(isset($aHotels)){
+            return $aHotels;
+        }
+        else{
+            return null;
+        }
+
     }
 }
