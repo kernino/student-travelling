@@ -30,7 +30,7 @@ class InfoController extends Controller
             if(request()->info_id != "") {
                 $infoContent["content"] = request()->info_content;
                 $infoContent["id"] = request()->info_id;
-                if($this->info->updateAlgemeneInfo($infoContent)) {
+                if($this->Info->updateAlgemeneInfo($infoContent)) {
                     return redirect()->route('info_backend');
                 }
                 return  redirect()->route('info_backend')->withErrors(["Opslaan mislukt" => "Kan de aanpassing niet opslaan"]);
