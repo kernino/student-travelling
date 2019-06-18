@@ -13,7 +13,7 @@
 <h2 class="vervoer">Extra informatie</h2>
 
 @if(isset($sTransportationInfo))
-<div>{!! $sTransportationInfo !!}</div>
+<div style="margin-left: 1%;">{!! $sTransportationInfo !!}</div>
 @else
 <p class="vervoer">No transportation info found for this trip</p>
 @endif
