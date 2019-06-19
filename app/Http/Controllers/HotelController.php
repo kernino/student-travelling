@@ -101,4 +101,21 @@ class HotelController extends Controller
             return view('partials.backend.hotel', ["aHotels" => $aHotels, "hotel_info" => $hotel_info, "no_hotel" =>$no_hotel]);
             }
     }
+    
+    private function getEmergencyNumbers($sTripId){
+        
+        $aTravellers = DB::table('travellers_trips')->where('trip_id', '=', $sTripId)->get();  
+
+        foreach ($aTravellers as $aTraveller)
+        {
+            $aEmergencyNumbers[] = DB::table('travellers')->where('traveller_id', '=', $aTraveller->traveller_id)->whereNull('major_name')->first();
+        }             
+
+        if (isset($aEmergencyNumbers)){
+            return $aEmergencyNumbers;
+        }
+        else{
+            return null;
+        } 
+    }
 }
